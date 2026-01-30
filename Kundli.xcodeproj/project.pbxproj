@@ -1,0 +1,1259 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1EFA16DAFFAEA7E637871265 /* FestivalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FFDBCC412D903DF402024 /* FestivalDetailView.swift */; };
+		23932601B3A869DD634A0372 /* CreateReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA52A5A5EA0F0DFD5BD3E2E /* CreateReminderView.swift */; };
+		28691393474F4A99D1237757 /* RemindersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8496DEC5ED729088134BF3 /* RemindersListView.swift */; };
+		2B1612157B4ED8BDA5775774 /* AspectLinesOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2669C85DEF33F33B50CA4B0 /* AspectLinesOverlay.swift */; };
+		2EF83DBE14FB82DD1A2C0CE0 /* FestivalCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F01B5577ABDBDC07D313A /* FestivalCalendarView.swift */; };
+		36F5556E97A8074CC2785BF0 /* ChartComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6A8D2635ED7B9A823A2E0 /* ChartComparisonView.swift */; };
+		3700A801C9E45DE7773B29C2 /* AIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FC37D306AF8230F380242 /* AIError.swift */; };
+		38E5A40D181F33F9ED5A6980 /* AIChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4936F53ACCC293D9B1D1EE /* AIChatViewModel.swift */; };
+		407797F52F2A6C010033CC84 /* SwissEphemeris in Frameworks */ = {isa = PBXBuildFile; productRef = 407797F42F2A6C010033CC84 /* SwissEphemeris */; };
+		407797FC2F2B29680033CC84 /* VedicPlanet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407797FA2F2B29680033CC84 /* VedicPlanet.swift */; };
+		407797FD2F2B29680033CC84 /* Yoga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407797FB2F2B29680033CC84 /* Yoga.swift */; };
+		407797FE2F2B29680033CC84 /* DivisionalChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407797F72F2B29680033CC84 /* DivisionalChartData.swift */; };
+		407797FF2F2B29680033CC84 /* CalculationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407797F62F2B29680033CC84 /* CalculationSettings.swift */; };
+		407798002F2B29680033CC84 /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407797F92F2B29680033CC84 /* GeoLocation.swift */; };
+		407798012F2B29680033CC84 /* Dosha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407797F82F2B29680033CC84 /* Dosha.swift */; };
+		4077983D2F2B98FE0033CC84 /* DashaPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798392F2B98FE0033CC84 /* DashaPeriod.swift */; };
+		4077983E2F2B98FE0033CC84 /* TransitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077983C2F2B98FE0033CC84 /* TransitData.swift */; };
+		4077983F2F2B98FE0033CC84 /* Remedy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077983B2F2B98FE0033CC84 /* Remedy.swift */; };
+		407798402F2B98FE0033CC84 /* PlanetaryStrength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077983A2F2B98FE0033CC84 /* PlanetaryStrength.swift */; };
+		407798412F2B98FE0033CC84 /* AshtakavargaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798382F2B98FE0033CC84 /* AshtakavargaData.swift */; };
+		407798442F2B995C0033CC84 /* DoshaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798422F2B995C0033CC84 /* DoshaListView.swift */; };
+		407798482F2B996C0033CC84 /* ExtendedHoroscopeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798452F2B996C0033CC84 /* ExtendedHoroscopeView.swift */; };
+		407798492F2B996C0033CC84 /* HoroscopeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798462F2B996C0033CC84 /* HoroscopeDetailView.swift */; };
+		4077984C2F2B998D0033CC84 /* TransitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077984A2F2B998D0033CC84 /* TransitView.swift */; };
+		4077984F2F2B99990033CC84 /* YogaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077984D2F2B99990033CC84 /* YogaListView.swift */; };
+		407798612F2B99AA0033CC84 /* DoshaDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798542F2B99AA0033CC84 /* DoshaDetectionService.swift */; };
+		407798622F2B99AA0033CC84 /* MuhurtaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798572F2B99AA0033CC84 /* MuhurtaService.swift */; };
+		407798632F2B99AA0033CC84 /* YogaDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077985D2F2B99AA0033CC84 /* YogaDetectionService.swift */; };
+		407798642F2B99AA0033CC84 /* HouseCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798562F2B99AA0033CC84 /* HouseCalculationService.swift */; };
+		407798652F2B99AA0033CC84 /* TransitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077985C2F2B99AA0033CC84 /* TransitService.swift */; };
+		407798662F2B99AA0033CC84 /* PlanetaryPositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077985A2F2B99AA0033CC84 /* PlanetaryPositionService.swift */; };
+		407798672F2B99AA0033CC84 /* PanchangCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798592F2B99AA0033CC84 /* PanchangCalculationService.swift */; };
+		407798682F2B99AA0033CC84 /* AyanamsaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798512F2B99AA0033CC84 /* AyanamsaService.swift */; };
+		407798692F2B99AA0033CC84 /* NakshatraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798582F2B99AA0033CC84 /* NakshatraService.swift */; };
+		4077986A2F2B99AA0033CC84 /* KundliGenerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077985F2F2B99AA0033CC84 /* KundliGenerationService.swift */; };
+		4077986B2F2B99AA0033CC84 /* DivisionalChartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798532F2B99AA0033CC84 /* DivisionalChartService.swift */; };
+		4077986C2F2B99AA0033CC84 /* EphemerisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798552F2B99AA0033CC84 /* EphemerisService.swift */; };
+		4077986D2F2B99AA0033CC84 /* RemedyGenerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798602F2B99AA0033CC84 /* RemedyGenerationService.swift */; };
+		4077986E2F2B99AA0033CC84 /* ShadbalaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077985B2F2B99AA0033CC84 /* ShadbalaService.swift */; };
+		4077986F2F2B99AA0033CC84 /* AshtakavargaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798502F2B99AA0033CC84 /* AshtakavargaService.swift */; };
+		407798702F2B99AA0033CC84 /* DashaCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798522F2B99AA0033CC84 /* DashaCalculationService.swift */; };
+		407798710001AA0033CC84 /* YoginiDashaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077985E0001AA0033CC84 /* YoginiDashaService.swift */; };
+		407798710002AA0033CC84 /* AshtottariDashaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077985E0002AA0033CC84 /* AshtottariDashaService.swift */; };
+		407798710003AA0033CC84 /* CharaDashaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077985E0003AA0033CC84 /* CharaDashaService.swift */; };
+		4077987B2F2B9D840033CC84 /* AshtakavargaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798782F2B9D840033CC84 /* AshtakavargaView.swift */; };
+		4077987C2F2B9D840033CC84 /* PlanetaryStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407798792F2B9D840033CC84 /* PlanetaryStrengthView.swift */; };
+		4077987F2F2B9DA20033CC84 /* DivisionalChartPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077987D2F2B9DA20033CC84 /* DivisionalChartPicker.swift */; };
+		407798802F2B9DA20033CC84 /* DivisionalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077987E2F2B9DA20033CC84 /* DivisionalChartView.swift */; };
+		452C02242AF622D5A649DB39 /* AIReportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A0D91DDD697BB7B09B2C00 /* AIReportType.swift */; };
+		4785EE1EC2D09DC23FA038BF /* HouseInfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B62502D890B157EE3DB2453 /* HouseInfoPopup.swift */; };
+		5318283FF57EEF7F13312FAE /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00183AD4278328C7694CF54A /* AIService.swift */; };
+		5ACA15C09570CB46EBE5D344 /* SynastryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67516744E5AA542F9773DCA /* SynastryService.swift */; };
+		5AD084BCC046F14FBD16EDD0 /* HoraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CED4FD50814D039B380BFB /* HoraView.swift */; };
+		5BEEC4DA8AD2B24E337B3A8E /* AIReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0C88E140C0681C39C0AA8 /* AIReport.swift */; };
+		5D913CF73CEC5985FA5E6850 /* HoraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805910FBE1554BF8A3830218 /* HoraService.swift */; };
+		619B3AD7676ACA62D3A94331 /* AIPromptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E7BA9B68E79C5C62C9341A /* AIPromptBuilder.swift */; };
+		6BF998FAE7A102A0742B72CD /* ChartGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7F80164AB161E006744DA /* ChartGestureHandler.swift */; };
+		716761818210D1C51C750D34 /* ReportSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E84A84A49C16AAEFB79C0E /* ReportSectionView.swift */; };
+		74A0E88230E5C4A81AD9688A /* AIReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43503B9A3D5FB939A52D4B02 /* AIReportViewModel.swift */; };
+		74CF73C41445F95EE7CFEBBB /* ChartLoadAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B0252F2C741A52D23E302 /* ChartLoadAnimation.swift */; };
+		78BAF78A20068E3DFB05E73C /* CustomReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEE4DB9C2A9CFB44A06FBA /* CustomReminder.swift */; };
+		7A68EE61D1C05F2C3AEAEA6C /* PlanetQuickInfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD581C2248832472F50CB0D /* PlanetQuickInfoPopup.swift */; };
+		82E02A78D7A8C2F5C91A23A9 /* HoraCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CF55F3897A26F1B594E380 /* HoraCard.swift */; };
+		851304B8B79C8AFDAD170BA5 /* SuggestedQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F115DFB4E912367DCC8BD5F /* SuggestedQuestionsView.swift */; };
+		871602B5F032B9C3DABEB1EE /* AISettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEC5A61C8DF46D04CD7771 /* AISettingsView.swift */; };
+		990C4A2399448313D89F7D91 /* KundliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001000 /* KundliApp.swift */; };
+		998936B81AF229602AF39A5D /* ChartComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D869DCCA8A8313C76568A6D /* ChartComparison.swift */; };
+		9DA0D966D65B31784D3B266B /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D27F3D19AC51B06FF68BA4 /* DeepLink.swift */; };
+		9E6A32C27CDDA80FEBB007EB /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2252FB26E137A689461DE /* ChatMessage.swift */; };
+		A137D4233AAB5098963186A2 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD85CC7642EB887A93CDC881 /* AppTheme.swift */; };
+		A38CC8722A784FB1E4354ACC /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3125B03C49527CFDF5A5D7A2 /* ChatBubbleView.swift */; };
+		AA000002001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000002000 /* ContentView.swift */; };
+		AA000003001 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000003000 /* Colors.swift */; };
+		AA000004001 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000004000 /* Fonts.swift */; };
+		AA000005001 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000005000 /* Styles.swift */; };
+		AA000006001 /* BirthDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000006000 /* BirthDetails.swift */; };
+		AA000007001 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000007000 /* Planet.swift */; };
+		AA000008001 /* Panchang.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000008000 /* Panchang.swift */; };
+		AA000009001 /* Kundli.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000009000 /* Kundli.swift */; };
+		AA000010001 /* DashaPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000010000 /* DashaPeriod.swift */; };
+		AA000011001 /* KundliMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000011000 /* KundliMatch.swift */; };
+		AA000012001 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000012000 /* MockDataService.swift */; };
+		AA000013001 /* GoldButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000013000 /* GoldButton.swift */; };
+		AA000014001 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000014000 /* CardView.swift */; };
+		AA000015001 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000015000 /* AppTabBar.swift */; };
+		AA000016001 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000016000 /* HomeViewModel.swift */; };
+		AA000017001 /* KundliViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000017000 /* KundliViewModel.swift */; };
+		AA000018001 /* MatchingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000018000 /* MatchingViewModel.swift */; };
+		AA000019001 /* HoroscopeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000019000 /* HoroscopeCard.swift */; };
+		AA000020001 /* PanchangGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000020000 /* PanchangGrid.swift */; };
+		AA000021001 /* QuickLinksRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000021000 /* QuickLinksRow.swift */; };
+		AA000022001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000022000 /* HomeView.swift */; };
+		AA000023001 /* CitySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000023000 /* CitySearchView.swift */; };
+		AA000024001 /* BirthDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000024000 /* BirthDetailsView.swift */; };
+		AA000025001 /* NorthIndianChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000025000 /* NorthIndianChart.swift */; };
+		AA000026001 /* SouthIndianChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000026000 /* SouthIndianChart.swift */; };
+		AA000027001 /* PlanetaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000027000 /* PlanetaryListView.swift */; };
+		AA000028001 /* BirthChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000028000 /* BirthChartView.swift */; };
+		AA000029001 /* PlanetaryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000029000 /* PlanetaryDetailsView.swift */; };
+		AA000030001 /* DashaPeriodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000030000 /* DashaPeriodsView.swift */; };
+		AA000031001 /* KundliMatchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000031000 /* KundliMatchingView.swift */; };
+		AA000032001 /* RemediesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000032000 /* RemediesView.swift */; };
+		AA000033001 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000033000 /* PreviewData.swift */; };
+		AA000034001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000034000 /* Assets.xcassets */; };
+		AA000035001 /* SavedKundli.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000035000 /* SavedKundli.swift */; };
+		AA000036001 /* SavedKundlisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000036000 /* SavedKundlisView.swift */; };
+		AA000037001 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA000037000 /* LaunchScreen.storyboard */; };
+		AA000038001 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000038000 /* UserDefaultsService.swift */; };
+		AA000039001 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000039000 /* OnboardingPageView.swift */; };
+		AA000040001 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000040000 /* OnboardingView.swift */; };
+		AA000041001 /* AnimatedGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000041000 /* AnimatedGradient.swift */; };
+		AA000042001 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000042000 /* NotificationSettings.swift */; };
+		AA000043001 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000043000 /* SettingsService.swift */; };
+		AA000044001 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000044000 /* NotificationService.swift */; };
+		AA000045001 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000045000 /* SettingsViewModel.swift */; };
+		AA000046001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000046000 /* SettingsView.swift */; };
+		AA000047001 /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000047000 /* NotificationSettingsView.swift */; };
+		AD2C6CF75292005E1E45C05E /* AIReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA922877BEB0EE7B93FFE8 /* AIReportView.swift */; };
+		B2AD2998F04859D07162D16A /* FestivalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E144C7276B7A8E8256203 /* FestivalService.swift */; };
+		B668321E9B3A519E08796215 /* ChatConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6580F920A52F9F5CBC0A2 /* ChatConversation.swift */; };
+		B74442BDF6DEDD2A9AC4CD04 /* SynastryAspectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A211D7623E5913FA51803 /* SynastryAspectList.swift */; };
+		BA4BC293BE077279FE70F4C1 /* AIFeatureEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865D499962A4892CB0FF200 /* AIFeatureEntryView.swift */; };
+		BE5BF199D454A7C9A4597616 /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC6972CFA0AD50B49FE88A /* ChatInputView.swift */; };
+		C9F2689ACF6DAE0BC8BF5963 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8C8F36A10326BDDDBAEC9 /* Festival.swift */; };
+		CD5F86DF5E3D07B1D07E080D /* TappablePlanetSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A820E3F860192797E667E /* TappablePlanetSymbol.swift */; };
+		D49C366613794E371A79FFA3 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BAC4F9975163A13AF13EDB /* NavigationCoordinator.swift */; };
+		DA6A0A680D36448417EE969A /* AIResponseCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8A489F6B871154B9250562 /* AIResponseCache.swift */; };
+		DD44B380EAFCD2D3F35280CF /* ReportTypeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E26E38211AE7052614BC31E /* ReportTypeSelectionView.swift */; };
+		E1E50D08619E8A1912018CD3 /* AIReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25855CF9F9425953FAFFAF40 /* AIReportService.swift */; };
+		E85CE2E9B09A3E3A65AF288D /* AIChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31BFBDB4C193C71F16FC01A /* AIChatService.swift */; };
+		EAAD6A6F4E28F9B6B97854B8 /* WesternCircularChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB601E895D34B2CCBBF5B91 /* WesternCircularChart.swift */; };
+		EF74A65E759C7373018293B6 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A9FCB5E0FF85C7DB08CB3 /* ChatView.swift */; };
+		F36C5E5A4382DC36F8211B53 /* ChartInteractionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1997D1EDB5175D46FA686 /* ChartInteractionState.swift */; };
+		F72A02CE14285BE36CE5F203 /* AIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1287FD51E63FE8E2EE0D8E5 /* AIKeyManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00183AD4278328C7694CF54A /* AIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
+		06F6A8D2635ED7B9A823A2E0 /* ChartComparisonView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChartComparisonView.swift; sourceTree = "<group>"; };
+		150A820E3F860192797E667E /* TappablePlanetSymbol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TappablePlanetSymbol.swift; sourceTree = "<group>"; };
+		1B62502D890B157EE3DB2453 /* HouseInfoPopup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HouseInfoPopup.swift; sourceTree = "<group>"; };
+		1DA0C88E140C0681C39C0AA8 /* AIReport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIReport.swift; sourceTree = "<group>"; };
+		25855CF9F9425953FAFFAF40 /* AIReportService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIReportService.swift; sourceTree = "<group>"; };
+		28BAC4F9975163A13AF13EDB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		2DD581C2248832472F50CB0D /* PlanetQuickInfoPopup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlanetQuickInfoPopup.swift; sourceTree = "<group>"; };
+		2F8496DEC5ED729088134BF3 /* RemindersListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemindersListView.swift; sourceTree = "<group>"; };
+		30B1997D1EDB5175D46FA686 /* ChartInteractionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChartInteractionState.swift; sourceTree = "<group>"; };
+		30F7F80164AB161E006744DA /* ChartGestureHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChartGestureHandler.swift; sourceTree = "<group>"; };
+		3125B03C49527CFDF5A5D7A2 /* ChatBubbleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
+		3BA52A5A5EA0F0DFD5BD3E2E /* CreateReminderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateReminderView.swift; sourceTree = "<group>"; };
+		3E26E38211AE7052614BC31E /* ReportTypeSelectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReportTypeSelectionView.swift; sourceTree = "<group>"; };
+		407797F62F2B29680033CC84 /* CalculationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationSettings.swift; sourceTree = "<group>"; };
+		407797F72F2B29680033CC84 /* DivisionalChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionalChartData.swift; sourceTree = "<group>"; };
+		407797F82F2B29680033CC84 /* Dosha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dosha.swift; sourceTree = "<group>"; };
+		407797F92F2B29680033CC84 /* GeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
+		407797FA2F2B29680033CC84 /* VedicPlanet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VedicPlanet.swift; sourceTree = "<group>"; };
+		407797FB2F2B29680033CC84 /* Yoga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yoga.swift; sourceTree = "<group>"; };
+		4077981C2F2B2ADC0033CC84 /* kundlitests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kundlitests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		407798382F2B98FE0033CC84 /* AshtakavargaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AshtakavargaData.swift; sourceTree = "<group>"; };
+		407798392F2B98FE0033CC84 /* DashaPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashaPeriod.swift; sourceTree = "<group>"; };
+		4077983A2F2B98FE0033CC84 /* PlanetaryStrength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryStrength.swift; sourceTree = "<group>"; };
+		4077983B2F2B98FE0033CC84 /* Remedy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remedy.swift; sourceTree = "<group>"; };
+		4077983C2F2B98FE0033CC84 /* TransitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitData.swift; sourceTree = "<group>"; };
+		407798422F2B995C0033CC84 /* DoshaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoshaListView.swift; sourceTree = "<group>"; };
+		407798452F2B996C0033CC84 /* ExtendedHoroscopeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedHoroscopeView.swift; sourceTree = "<group>"; };
+		407798462F2B996C0033CC84 /* HoroscopeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeDetailView.swift; sourceTree = "<group>"; };
+		4077984A2F2B998D0033CC84 /* TransitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitView.swift; sourceTree = "<group>"; };
+		4077984D2F2B99990033CC84 /* YogaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaListView.swift; sourceTree = "<group>"; };
+		407798502F2B99AA0033CC84 /* AshtakavargaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AshtakavargaService.swift; sourceTree = "<group>"; };
+		407798512F2B99AA0033CC84 /* AyanamsaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyanamsaService.swift; sourceTree = "<group>"; };
+		407798522F2B99AA0033CC84 /* DashaCalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashaCalculationService.swift; sourceTree = "<group>"; };
+		407798532F2B99AA0033CC84 /* DivisionalChartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionalChartService.swift; sourceTree = "<group>"; };
+		407798542F2B99AA0033CC84 /* DoshaDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoshaDetectionService.swift; sourceTree = "<group>"; };
+		407798552F2B99AA0033CC84 /* EphemerisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemerisService.swift; sourceTree = "<group>"; };
+		407798562F2B99AA0033CC84 /* HouseCalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseCalculationService.swift; sourceTree = "<group>"; };
+		407798572F2B99AA0033CC84 /* MuhurtaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuhurtaService.swift; sourceTree = "<group>"; };
+		407798582F2B99AA0033CC84 /* NakshatraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NakshatraService.swift; sourceTree = "<group>"; };
+		407798592F2B99AA0033CC84 /* PanchangCalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanchangCalculationService.swift; sourceTree = "<group>"; };
+		4077985A2F2B99AA0033CC84 /* PlanetaryPositionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryPositionService.swift; sourceTree = "<group>"; };
+		4077985B2F2B99AA0033CC84 /* ShadbalaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadbalaService.swift; sourceTree = "<group>"; };
+		4077985C2F2B99AA0033CC84 /* TransitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitService.swift; sourceTree = "<group>"; };
+		4077985D2F2B99AA0033CC84 /* YogaDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaDetectionService.swift; sourceTree = "<group>"; };
+		4077985E0001AA0033CC84 /* YoginiDashaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoginiDashaService.swift; sourceTree = "<group>"; };
+		4077985E0002AA0033CC84 /* AshtottariDashaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AshtottariDashaService.swift; sourceTree = "<group>"; };
+		4077985E0003AA0033CC84 /* CharaDashaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharaDashaService.swift; sourceTree = "<group>"; };
+		4077985F2F2B99AA0033CC84 /* KundliGenerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KundliGenerationService.swift; sourceTree = "<group>"; };
+		407798602F2B99AA0033CC84 /* RemedyGenerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyGenerationService.swift; sourceTree = "<group>"; };
+		407798782F2B9D840033CC84 /* AshtakavargaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AshtakavargaView.swift; sourceTree = "<group>"; };
+		407798792F2B9D840033CC84 /* PlanetaryStrengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryStrengthView.swift; sourceTree = "<group>"; };
+		4077987D2F2B9DA20033CC84 /* DivisionalChartPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionalChartPicker.swift; sourceTree = "<group>"; };
+		4077987E2F2B9DA20033CC84 /* DivisionalChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionalChartView.swift; sourceTree = "<group>"; };
+		4077AA392F2BA5660033CC84 /* project-plan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "project-plan.md"; sourceTree = "<group>"; };
+		40E84A84A49C16AAEFB79C0E /* ReportSectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReportSectionView.swift; sourceTree = "<group>"; };
+		41E7BA9B68E79C5C62C9341A /* AIPromptBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIPromptBuilder.swift; sourceTree = "<group>"; };
+		43503B9A3D5FB939A52D4B02 /* AIReportViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIReportViewModel.swift; sourceTree = "<group>"; };
+		48A0D91DDD697BB7B09B2C00 /* AIReportType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIReportType.swift; sourceTree = "<group>"; };
+		4D0E144C7276B7A8E8256203 /* FestivalService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FestivalService.swift; sourceTree = "<group>"; };
+		4F115DFB4E912367DCC8BD5F /* SuggestedQuestionsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SuggestedQuestionsView.swift; sourceTree = "<group>"; };
+		52A2252FB26E137A689461DE /* ChatMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		531B0252F2C741A52D23E302 /* ChartLoadAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChartLoadAnimation.swift; sourceTree = "<group>"; };
+		55EA922877BEB0EE7B93FFE8 /* AIReportView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIReportView.swift; sourceTree = "<group>"; };
+		56CEE4DB9C2A9CFB44A06FBA /* CustomReminder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomReminder.swift; sourceTree = "<group>"; };
+		5BA6580F920A52F9F5CBC0A2 /* ChatConversation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatConversation.swift; sourceTree = "<group>"; };
+		6D869DCCA8A8313C76568A6D /* ChartComparison.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChartComparison.swift; sourceTree = "<group>"; };
+		805910FBE1554BF8A3830218 /* HoraService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HoraService.swift; sourceTree = "<group>"; };
+		8865D499962A4892CB0FF200 /* AIFeatureEntryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIFeatureEntryView.swift; sourceTree = "<group>"; };
+		AA000000000 /* Kundli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kundli.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000001000 /* KundliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KundliApp.swift; sourceTree = "<group>"; };
+		AA000002000 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA000003000 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		AA000004000 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		AA000005000 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		AA000006000 /* BirthDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDetails.swift; sourceTree = "<group>"; };
+		AA000007000 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		AA000008000 /* Panchang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panchang.swift; sourceTree = "<group>"; };
+		AA000009000 /* Kundli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kundli.swift; sourceTree = "<group>"; };
+		AA000010000 /* DashaPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashaPeriod.swift; sourceTree = "<group>"; };
+		AA000011000 /* KundliMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KundliMatch.swift; sourceTree = "<group>"; };
+		AA000012000 /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
+		AA000013000 /* GoldButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldButton.swift; sourceTree = "<group>"; };
+		AA000014000 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AA000015000 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
+		AA000016000 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		AA000017000 /* KundliViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KundliViewModel.swift; sourceTree = "<group>"; };
+		AA000018000 /* MatchingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewModel.swift; sourceTree = "<group>"; };
+		AA000019000 /* HoroscopeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCard.swift; sourceTree = "<group>"; };
+		AA000020000 /* PanchangGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanchangGrid.swift; sourceTree = "<group>"; };
+		AA000021000 /* QuickLinksRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLinksRow.swift; sourceTree = "<group>"; };
+		AA000022000 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA000023000 /* CitySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchView.swift; sourceTree = "<group>"; };
+		AA000024000 /* BirthDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDetailsView.swift; sourceTree = "<group>"; };
+		AA000025000 /* NorthIndianChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorthIndianChart.swift; sourceTree = "<group>"; };
+		AA000026000 /* SouthIndianChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SouthIndianChart.swift; sourceTree = "<group>"; };
+		AA000027000 /* PlanetaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryListView.swift; sourceTree = "<group>"; };
+		AA000028000 /* BirthChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthChartView.swift; sourceTree = "<group>"; };
+		AA000029000 /* PlanetaryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryDetailsView.swift; sourceTree = "<group>"; };
+		AA000030000 /* DashaPeriodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashaPeriodsView.swift; sourceTree = "<group>"; };
+		AA000031000 /* KundliMatchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KundliMatchingView.swift; sourceTree = "<group>"; };
+		AA000032000 /* RemediesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemediesView.swift; sourceTree = "<group>"; };
+		AA000033000 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		AA000034000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA000035000 /* SavedKundli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedKundli.swift; sourceTree = "<group>"; };
+		AA000036000 /* SavedKundlisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedKundlisView.swift; sourceTree = "<group>"; };
+		AA000037000 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AA000038000 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		AA000039000 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
+		AA000040000 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		AA000041000 /* AnimatedGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGradient.swift; sourceTree = "<group>"; };
+		AA000042000 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
+		AA000043000 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		AA000044000 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		AA000045000 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		AA000046000 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA000047000 /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
+		B1287FD51E63FE8E2EE0D8E5 /* AIKeyManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIKeyManager.swift; sourceTree = "<group>"; };
+		B2669C85DEF33F33B50CA4B0 /* AspectLinesOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AspectLinesOverlay.swift; sourceTree = "<group>"; };
+		B5AEC5A61C8DF46D04CD7771 /* AISettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AISettingsView.swift; sourceTree = "<group>"; };
+		B93FFDBCC412D903DF402024 /* FestivalDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FestivalDetailView.swift; sourceTree = "<group>"; };
+		BA9F01B5577ABDBDC07D313A /* FestivalCalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FestivalCalendarView.swift; sourceTree = "<group>"; };
+		BB8A489F6B871154B9250562 /* AIResponseCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIResponseCache.swift; sourceTree = "<group>"; };
+		C0CED4FD50814D039B380BFB /* HoraView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HoraView.swift; sourceTree = "<group>"; };
+		C67516744E5AA542F9773DCA /* SynastryService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SynastryService.swift; sourceTree = "<group>"; };
+		CD85CC7642EB887A93CDC881 /* AppTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		CF4936F53ACCC293D9B1D1EE /* AIChatViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIChatViewModel.swift; sourceTree = "<group>"; };
+		D3AC6972CFA0AD50B49FE88A /* ChatInputView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
+		D5D27F3D19AC51B06FF68BA4 /* DeepLink.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
+		DBB601E895D34B2CCBBF5B91 /* WesternCircularChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WesternCircularChart.swift; sourceTree = "<group>"; };
+		E0CF55F3897A26F1B594E380 /* HoraCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HoraCard.swift; sourceTree = "<group>"; };
+		E52A211D7623E5913FA51803 /* SynastryAspectList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SynastryAspectList.swift; sourceTree = "<group>"; };
+		F31BFBDB4C193C71F16FC01A /* AIChatService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIChatService.swift; sourceTree = "<group>"; };
+		F31FC37D306AF8230F380242 /* AIError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIError.swift; sourceTree = "<group>"; };
+		F88A9FCB5E0FF85C7DB08CB3 /* ChatView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		FFE8C8F36A10326BDDDBAEC9 /* Festival.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4077981D2F2B2ADC0033CC84 /* kundlitests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = kundlitests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		407798192F2B2ADC0033CC84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFRAMEWORKS /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407797F52F2A6C010033CC84 /* SwissEphemeris in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A8BD6AB4B0364B4670AF702 /* Comparison */ = {
+			isa = PBXGroup;
+			children = (
+				06F6A8D2635ED7B9A823A2E0 /* ChartComparisonView.swift */,
+				E52A211D7623E5913FA51803 /* SynastryAspectList.swift */,
+			);
+			name = Comparison;
+			path = Comparison;
+			sourceTree = "<group>";
+		};
+		2E878F4382DEAFED5BF26F7B /* Hora */ = {
+			isa = PBXGroup;
+			children = (
+				C0CED4FD50814D039B380BFB /* HoraView.swift */,
+			);
+			name = Hora;
+			path = Hora;
+			sourceTree = "<group>";
+		};
+		407798432F2B995C0033CC84 /* Dosha */ = {
+			isa = PBXGroup;
+			children = (
+				407798422F2B995C0033CC84 /* DoshaListView.swift */,
+			);
+			path = Dosha;
+			sourceTree = "<group>";
+		};
+		407798472F2B996C0033CC84 /* Horoscope */ = {
+			isa = PBXGroup;
+			children = (
+				407798452F2B996C0033CC84 /* ExtendedHoroscopeView.swift */,
+				407798462F2B996C0033CC84 /* HoroscopeDetailView.swift */,
+			);
+			path = Horoscope;
+			sourceTree = "<group>";
+		};
+		4077984B2F2B998D0033CC84 /* Transit */ = {
+			isa = PBXGroup;
+			children = (
+				4077984A2F2B998D0033CC84 /* TransitView.swift */,
+			);
+			path = Transit;
+			sourceTree = "<group>";
+		};
+		4077984E2F2B99990033CC84 /* Yoga */ = {
+			isa = PBXGroup;
+			children = (
+				4077984D2F2B99990033CC84 /* YogaListView.swift */,
+			);
+			path = Yoga;
+			sourceTree = "<group>";
+		};
+		4077985E2F2B99AA0033CC84 /* Calculations */ = {
+			isa = PBXGroup;
+			children = (
+				407798502F2B99AA0033CC84 /* AshtakavargaService.swift */,
+				4077985E0002AA0033CC84 /* AshtottariDashaService.swift */,
+				407798512F2B99AA0033CC84 /* AyanamsaService.swift */,
+				4077985E0003AA0033CC84 /* CharaDashaService.swift */,
+				407798522F2B99AA0033CC84 /* DashaCalculationService.swift */,
+				407798532F2B99AA0033CC84 /* DivisionalChartService.swift */,
+				407798542F2B99AA0033CC84 /* DoshaDetectionService.swift */,
+				407798552F2B99AA0033CC84 /* EphemerisService.swift */,
+				407798562F2B99AA0033CC84 /* HouseCalculationService.swift */,
+				407798572F2B99AA0033CC84 /* MuhurtaService.swift */,
+				407798582F2B99AA0033CC84 /* NakshatraService.swift */,
+				407798592F2B99AA0033CC84 /* PanchangCalculationService.swift */,
+				4077985A2F2B99AA0033CC84 /* PlanetaryPositionService.swift */,
+				4077985B2F2B99AA0033CC84 /* ShadbalaService.swift */,
+				4077985C2F2B99AA0033CC84 /* TransitService.swift */,
+				4077985D2F2B99AA0033CC84 /* YogaDetectionService.swift */,
+				4077985E0001AA0033CC84 /* YoginiDashaService.swift */,
+				805910FBE1554BF8A3830218 /* HoraService.swift */,
+				4D0E144C7276B7A8E8256203 /* FestivalService.swift */,
+				C67516744E5AA542F9773DCA /* SynastryService.swift */,
+			);
+			path = Calculations;
+			sourceTree = "<group>";
+		};
+		4077987A2F2B9D840033CC84 /* Strength */ = {
+			isa = PBXGroup;
+			children = (
+				407798782F2B9D840033CC84 /* AshtakavargaView.swift */,
+				407798792F2B9D840033CC84 /* PlanetaryStrengthView.swift */,
+			);
+			path = Strength;
+			sourceTree = "<group>";
+		};
+		40801C66DF746DD79E06DD0A /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				3BA52A5A5EA0F0DFD5BD3E2E /* CreateReminderView.swift */,
+				2F8496DEC5ED729088134BF3 /* RemindersListView.swift */,
+			);
+			name = Reminders;
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		496817667AD1DDE9EBE1004A /* Interactions */ = {
+			isa = PBXGroup;
+			children = (
+				30B1997D1EDB5175D46FA686 /* ChartInteractionState.swift */,
+				30F7F80164AB161E006744DA /* ChartGestureHandler.swift */,
+				150A820E3F860192797E667E /* TappablePlanetSymbol.swift */,
+				2DD581C2248832472F50CB0D /* PlanetQuickInfoPopup.swift */,
+				1B62502D890B157EE3DB2453 /* HouseInfoPopup.swift */,
+				531B0252F2C741A52D23E302 /* ChartLoadAnimation.swift */,
+				B2669C85DEF33F33B50CA4B0 /* AspectLinesOverlay.swift */,
+			);
+			name = Interactions;
+			path = Interactions;
+			sourceTree = "<group>";
+		};
+		55268EE9AE5697BAC32F4966 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				B1287FD51E63FE8E2EE0D8E5 /* AIKeyManager.swift */,
+				00183AD4278328C7694CF54A /* AIService.swift */,
+				41E7BA9B68E79C5C62C9341A /* AIPromptBuilder.swift */,
+				25855CF9F9425953FAFFAF40 /* AIReportService.swift */,
+				BB8A489F6B871154B9250562 /* AIResponseCache.swift */,
+				F31BFBDB4C193C71F16FC01A /* AIChatService.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		61430182094DFE901516E260 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				B5AEC5A61C8DF46D04CD7771 /* AISettingsView.swift */,
+				8865D499962A4892CB0FF200 /* AIFeatureEntryView.swift */,
+				55EA922877BEB0EE7B93FFE8 /* AIReportView.swift */,
+				3E26E38211AE7052614BC31E /* ReportTypeSelectionView.swift */,
+				40E84A84A49C16AAEFB79C0E /* ReportSectionView.swift */,
+				F88A9FCB5E0FF85C7DB08CB3 /* ChatView.swift */,
+				3125B03C49527CFDF5A5D7A2 /* ChatBubbleView.swift */,
+				D3AC6972CFA0AD50B49FE88A /* ChatInputView.swift */,
+				4F115DFB4E912367DCC8BD5F /* SuggestedQuestionsView.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		AABIRTHDETAILS /* BirthDetails */ = {
+			isa = PBXGroup;
+			children = (
+				AA000024000 /* BirthDetailsView.swift */,
+				AA000023000 /* CitySearchView.swift */,
+			);
+			path = BirthDetails;
+			sourceTree = "<group>";
+		};
+		AACHART /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				4077987D2F2B9DA20033CC84 /* DivisionalChartPicker.swift */,
+				4077987E2F2B9DA20033CC84 /* DivisionalChartView.swift */,
+				AA000028000 /* BirthChartView.swift */,
+				AA000025000 /* NorthIndianChart.swift */,
+				AA000026000 /* SouthIndianChart.swift */,
+				AA000027000 /* PlanetaryListView.swift */,
+				496817667AD1DDE9EBE1004A /* Interactions */,
+				DBB601E895D34B2CCBBF5B91 /* WesternCircularChart.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		AACOMPONENTS /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AA000015000 /* AppTabBar.swift */,
+				AA000013000 /* GoldButton.swift */,
+				AA000014000 /* CardView.swift */,
+				AA000041000 /* AnimatedGradient.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AADASHA /* Dasha */ = {
+			isa = PBXGroup;
+			children = (
+				AA000030000 /* DashaPeriodsView.swift */,
+			);
+			path = Dasha;
+			sourceTree = "<group>";
+		};
+		AAHOME /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AA000022000 /* HomeView.swift */,
+				AA000019000 /* HoroscopeCard.swift */,
+				AA000020000 /* PanchangGrid.swift */,
+				AA000021000 /* QuickLinksRow.swift */,
+				E0CF55F3897A26F1B594E380 /* HoraCard.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AAKUNDLI /* Kundli */ = {
+			isa = PBXGroup;
+			children = (
+				AA000001000 /* KundliApp.swift */,
+				AA000002000 /* ContentView.swift */,
+				AA000037000 /* LaunchScreen.storyboard */,
+				AAMODELS /* Models */,
+				AAVIEWS /* Views */,
+				AAVIEWMODELS /* ViewModels */,
+				AASERVICES /* Services */,
+				AATHEME /* Theme */,
+				AARESOURCES /* Resources */,
+				AAPREVIEW /* Preview Content */,
+			);
+			path = Kundli;
+			sourceTree = "<group>";
+		};
+		AAMATCHING /* Matching */ = {
+			isa = PBXGroup;
+			children = (
+				AA000031000 /* KundliMatchingView.swift */,
+			);
+			path = Matching;
+			sourceTree = "<group>";
+		};
+		AAMODELS /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				407798382F2B98FE0033CC84 /* AshtakavargaData.swift */,
+				407798392F2B98FE0033CC84 /* DashaPeriod.swift */,
+				4077983A2F2B98FE0033CC84 /* PlanetaryStrength.swift */,
+				4077983B2F2B98FE0033CC84 /* Remedy.swift */,
+				4077983C2F2B98FE0033CC84 /* TransitData.swift */,
+				407797F62F2B29680033CC84 /* CalculationSettings.swift */,
+				407797F72F2B29680033CC84 /* DivisionalChartData.swift */,
+				407797F82F2B29680033CC84 /* Dosha.swift */,
+				407797F92F2B29680033CC84 /* GeoLocation.swift */,
+				407797FA2F2B29680033CC84 /* VedicPlanet.swift */,
+				407797FB2F2B29680033CC84 /* Yoga.swift */,
+				AA000006000 /* BirthDetails.swift */,
+				AA000007000 /* Planet.swift */,
+				AA000008000 /* Panchang.swift */,
+				AA000009000 /* Kundli.swift */,
+				AA000010000 /* DashaPeriod.swift */,
+				AA000011000 /* KundliMatch.swift */,
+				AA000035000 /* SavedKundli.swift */,
+				AA000042000 /* NotificationSettings.swift */,
+				BE7AB5BF2EF6697559FF649B /* AI */,
+				D5D27F3D19AC51B06FF68BA4 /* DeepLink.swift */,
+				CD85CC7642EB887A93CDC881 /* AppTheme.swift */,
+				56CEE4DB9C2A9CFB44A06FBA /* CustomReminder.swift */,
+				FFE8C8F36A10326BDDDBAEC9 /* Festival.swift */,
+				6D869DCCA8A8313C76568A6D /* ChartComparison.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AAONBOARDING /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AA000039000 /* OnboardingPageView.swift */,
+				AA000040000 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AAPLANETARY /* Planetary */ = {
+			isa = PBXGroup;
+			children = (
+				AA000029000 /* PlanetaryDetailsView.swift */,
+			);
+			path = Planetary;
+			sourceTree = "<group>";
+		};
+		AAPREVIEW /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AA000033000 /* PreviewData.swift */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AAPRODUCTS /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000 /* Kundli.app */,
+				4077981C2F2B2ADC0033CC84 /* kundlitests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAREMEDIES /* Remedies */ = {
+			isa = PBXGroup;
+			children = (
+				AA000032000 /* RemediesView.swift */,
+			);
+			path = Remedies;
+			sourceTree = "<group>";
+		};
+		AARESOURCES /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA000034000 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AAROOT = {
+			isa = PBXGroup;
+			children = (
+				4077AA392F2BA5660033CC84 /* project-plan.md */,
+				AAKUNDLI /* Kundli */,
+				4077981D2F2B2ADC0033CC84 /* kundlitests */,
+				AAPRODUCTS /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AASAVEDKUNDLIS /* SavedKundlis */ = {
+			isa = PBXGroup;
+			children = (
+				AA000036000 /* SavedKundlisView.swift */,
+			);
+			path = SavedKundlis;
+			sourceTree = "<group>";
+		};
+		AASERVICES /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4077985E2F2B99AA0033CC84 /* Calculations */,
+				4077985F2F2B99AA0033CC84 /* KundliGenerationService.swift */,
+				407798602F2B99AA0033CC84 /* RemedyGenerationService.swift */,
+				AA000012000 /* MockDataService.swift */,
+				AA000038000 /* UserDefaultsService.swift */,
+				AA000043000 /* SettingsService.swift */,
+				AA000044000 /* NotificationService.swift */,
+				55268EE9AE5697BAC32F4966 /* AI */,
+				28BAC4F9975163A13AF13EDB /* NavigationCoordinator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AASETTINGS /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AA000046000 /* SettingsView.swift */,
+				AA000047000 /* NotificationSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		AATHEME /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				AA000003000 /* Colors.swift */,
+				AA000004000 /* Fonts.swift */,
+				AA000005000 /* Styles.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		AAVIEWMODELS /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AA000016000 /* HomeViewModel.swift */,
+				AA000017000 /* KundliViewModel.swift */,
+				AA000018000 /* MatchingViewModel.swift */,
+				AA000045000 /* SettingsViewModel.swift */,
+				43503B9A3D5FB939A52D4B02 /* AIReportViewModel.swift */,
+				CF4936F53ACCC293D9B1D1EE /* AIChatViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AAVIEWS /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4077987A2F2B9D840033CC84 /* Strength */,
+				4077984E2F2B99990033CC84 /* Yoga */,
+				4077984B2F2B998D0033CC84 /* Transit */,
+				407798472F2B996C0033CC84 /* Horoscope */,
+				407798432F2B995C0033CC84 /* Dosha */,
+				AAHOME /* Home */,
+				AABIRTHDETAILS /* BirthDetails */,
+				AACHART /* Chart */,
+				AAPLANETARY /* Planetary */,
+				AADASHA /* Dasha */,
+				AAREMEDIES /* Remedies */,
+				AAMATCHING /* Matching */,
+				AASAVEDKUNDLIS /* SavedKundlis */,
+				AASETTINGS /* Settings */,
+				AAONBOARDING /* Onboarding */,
+				AACOMPONENTS /* Components */,
+				61430182094DFE901516E260 /* AI */,
+				2E878F4382DEAFED5BF26F7B /* Hora */,
+				40801C66DF746DD79E06DD0A /* Reminders */,
+				EB640C59C60CC9DC91251DB9 /* Calendar */,
+				2A8BD6AB4B0364B4670AF702 /* Comparison */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BE7AB5BF2EF6697559FF649B /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				F31FC37D306AF8230F380242 /* AIError.swift */,
+				1DA0C88E140C0681C39C0AA8 /* AIReport.swift */,
+				48A0D91DDD697BB7B09B2C00 /* AIReportType.swift */,
+				5BA6580F920A52F9F5CBC0A2 /* ChatConversation.swift */,
+				52A2252FB26E137A689461DE /* ChatMessage.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		EB640C59C60CC9DC91251DB9 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				BA9F01B5577ABDBDC07D313A /* FestivalCalendarView.swift */,
+				B93FFDBCC412D903DF402024 /* FestivalDetailView.swift */,
+			);
+			name = Calendar;
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4077981B2F2B2ADC0033CC84 /* kundlitests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407798202F2B2ADC0033CC84 /* Build configuration list for PBXNativeTarget "kundlitests" */;
+			buildPhases = (
+				407798182F2B2ADC0033CC84 /* Sources */,
+				407798192F2B2ADC0033CC84 /* Frameworks */,
+				4077981A2F2B2ADC0033CC84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4077981D2F2B2ADC0033CC84 /* kundlitests */,
+			);
+			name = kundlitests;
+			productName = kundlitests;
+			productReference = 4077981C2F2B2ADC0033CC84 /* kundlitests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AATARGET /* Kundli */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABUILDCONFIGLIST /* Build configuration list for PBXNativeTarget "Kundli" */;
+			buildPhases = (
+				AASOURCES /* Sources */,
+				AAFRAMEWORKS /* Frameworks */,
+				AARESOURCESPHASE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kundli;
+			productName = Kundli;
+			productReference = AA000000000 /* Kundli.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAPROJECT /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					4077981B2F2B2ADC0033CC84 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					AATARGET = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AAPROJECTBUILDCONFIGLIST /* Build configuration list for PBXProject "Kundli" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAROOT;
+			packageReferences = (
+				407797F32F2A6C010033CC84 /* XCRemoteSwiftPackageReference "SwissEphemeris" */,
+			);
+			productRefGroup = AAPRODUCTS /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AATARGET /* Kundli */,
+				4077981B2F2B2ADC0033CC84 /* kundlitests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4077981A2F2B2ADC0033CC84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AARESOURCESPHASE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000034001 /* Assets.xcassets in Resources */,
+				AA000037001 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		407798182F2B2ADC0033CC84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AASOURCES /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000002001 /* ContentView.swift in Sources */,
+				AA000003001 /* Colors.swift in Sources */,
+				AA000004001 /* Fonts.swift in Sources */,
+				AA000005001 /* Styles.swift in Sources */,
+				AA000006001 /* BirthDetails.swift in Sources */,
+				AA000007001 /* Planet.swift in Sources */,
+				AA000008001 /* Panchang.swift in Sources */,
+				AA000009001 /* Kundli.swift in Sources */,
+				4077983D2F2B98FE0033CC84 /* DashaPeriod.swift in Sources */,
+				4077983E2F2B98FE0033CC84 /* TransitData.swift in Sources */,
+				4077983F2F2B98FE0033CC84 /* Remedy.swift in Sources */,
+				407798402F2B98FE0033CC84 /* PlanetaryStrength.swift in Sources */,
+				407798412F2B98FE0033CC84 /* AshtakavargaData.swift in Sources */,
+				AA000010001 /* DashaPeriod.swift in Sources */,
+				AA000011001 /* KundliMatch.swift in Sources */,
+				AA000012001 /* MockDataService.swift in Sources */,
+				AA000013001 /* GoldButton.swift in Sources */,
+				AA000014001 /* CardView.swift in Sources */,
+				AA000015001 /* AppTabBar.swift in Sources */,
+				AA000016001 /* HomeViewModel.swift in Sources */,
+				AA000017001 /* KundliViewModel.swift in Sources */,
+				AA000018001 /* MatchingViewModel.swift in Sources */,
+				AA000019001 /* HoroscopeCard.swift in Sources */,
+				AA000020001 /* PanchangGrid.swift in Sources */,
+				AA000021001 /* QuickLinksRow.swift in Sources */,
+				407798482F2B996C0033CC84 /* ExtendedHoroscopeView.swift in Sources */,
+				407798492F2B996C0033CC84 /* HoroscopeDetailView.swift in Sources */,
+				4077987B2F2B9D840033CC84 /* AshtakavargaView.swift in Sources */,
+				4077987C2F2B9D840033CC84 /* PlanetaryStrengthView.swift in Sources */,
+				4077984F2F2B99990033CC84 /* YogaListView.swift in Sources */,
+				AA000022001 /* HomeView.swift in Sources */,
+				AA000023001 /* CitySearchView.swift in Sources */,
+				AA000024001 /* BirthDetailsView.swift in Sources */,
+				AA000025001 /* NorthIndianChart.swift in Sources */,
+				AA000026001 /* SouthIndianChart.swift in Sources */,
+				AA000027001 /* PlanetaryListView.swift in Sources */,
+				4077984C2F2B998D0033CC84 /* TransitView.swift in Sources */,
+				AA000028001 /* BirthChartView.swift in Sources */,
+				AA000029001 /* PlanetaryDetailsView.swift in Sources */,
+				AA000030001 /* DashaPeriodsView.swift in Sources */,
+				AA000031001 /* KundliMatchingView.swift in Sources */,
+				AA000032001 /* RemediesView.swift in Sources */,
+				AA000033001 /* PreviewData.swift in Sources */,
+				AA000035001 /* SavedKundli.swift in Sources */,
+				407798612F2B99AA0033CC84 /* DoshaDetectionService.swift in Sources */,
+				407798622F2B99AA0033CC84 /* MuhurtaService.swift in Sources */,
+				407798632F2B99AA0033CC84 /* YogaDetectionService.swift in Sources */,
+				407798642F2B99AA0033CC84 /* HouseCalculationService.swift in Sources */,
+				407798652F2B99AA0033CC84 /* TransitService.swift in Sources */,
+				407798662F2B99AA0033CC84 /* PlanetaryPositionService.swift in Sources */,
+				407798672F2B99AA0033CC84 /* PanchangCalculationService.swift in Sources */,
+				407798682F2B99AA0033CC84 /* AyanamsaService.swift in Sources */,
+				407798692F2B99AA0033CC84 /* NakshatraService.swift in Sources */,
+				4077986A2F2B99AA0033CC84 /* KundliGenerationService.swift in Sources */,
+				4077986B2F2B99AA0033CC84 /* DivisionalChartService.swift in Sources */,
+				4077986C2F2B99AA0033CC84 /* EphemerisService.swift in Sources */,
+				4077986D2F2B99AA0033CC84 /* RemedyGenerationService.swift in Sources */,
+				4077986E2F2B99AA0033CC84 /* ShadbalaService.swift in Sources */,
+				4077986F2F2B99AA0033CC84 /* AshtakavargaService.swift in Sources */,
+				407798702F2B99AA0033CC84 /* DashaCalculationService.swift in Sources */,
+				407798710001AA0033CC84 /* YoginiDashaService.swift in Sources */,
+				407798710002AA0033CC84 /* AshtottariDashaService.swift in Sources */,
+				407798710003AA0033CC84 /* CharaDashaService.swift in Sources */,
+				AA000036001 /* SavedKundlisView.swift in Sources */,
+				407797FC2F2B29680033CC84 /* VedicPlanet.swift in Sources */,
+				4077987F2F2B9DA20033CC84 /* DivisionalChartPicker.swift in Sources */,
+				407798802F2B9DA20033CC84 /* DivisionalChartView.swift in Sources */,
+				407797FD2F2B29680033CC84 /* Yoga.swift in Sources */,
+				407797FE2F2B29680033CC84 /* DivisionalChartData.swift in Sources */,
+				407797FF2F2B29680033CC84 /* CalculationSettings.swift in Sources */,
+				407798002F2B29680033CC84 /* GeoLocation.swift in Sources */,
+				407798012F2B29680033CC84 /* Dosha.swift in Sources */,
+				407798442F2B995C0033CC84 /* DoshaListView.swift in Sources */,
+				AA000038001 /* UserDefaultsService.swift in Sources */,
+				AA000039001 /* OnboardingPageView.swift in Sources */,
+				AA000040001 /* OnboardingView.swift in Sources */,
+				AA000041001 /* AnimatedGradient.swift in Sources */,
+				AA000042001 /* NotificationSettings.swift in Sources */,
+				AA000043001 /* SettingsService.swift in Sources */,
+				AA000044001 /* NotificationService.swift in Sources */,
+				AA000045001 /* SettingsViewModel.swift in Sources */,
+				AA000046001 /* SettingsView.swift in Sources */,
+				AA000047001 /* NotificationSettingsView.swift in Sources */,
+				3700A801C9E45DE7773B29C2 /* AIError.swift in Sources */,
+				5BEEC4DA8AD2B24E337B3A8E /* AIReport.swift in Sources */,
+				452C02242AF622D5A649DB39 /* AIReportType.swift in Sources */,
+				B668321E9B3A519E08796215 /* ChatConversation.swift in Sources */,
+				9E6A32C27CDDA80FEBB007EB /* ChatMessage.swift in Sources */,
+				F72A02CE14285BE36CE5F203 /* AIKeyManager.swift in Sources */,
+				5318283FF57EEF7F13312FAE /* AIService.swift in Sources */,
+				619B3AD7676ACA62D3A94331 /* AIPromptBuilder.swift in Sources */,
+				E1E50D08619E8A1912018CD3 /* AIReportService.swift in Sources */,
+				DA6A0A680D36448417EE969A /* AIResponseCache.swift in Sources */,
+				E85CE2E9B09A3E3A65AF288D /* AIChatService.swift in Sources */,
+				871602B5F032B9C3DABEB1EE /* AISettingsView.swift in Sources */,
+				BA4BC293BE077279FE70F4C1 /* AIFeatureEntryView.swift in Sources */,
+				AD2C6CF75292005E1E45C05E /* AIReportView.swift in Sources */,
+				DD44B380EAFCD2D3F35280CF /* ReportTypeSelectionView.swift in Sources */,
+				716761818210D1C51C750D34 /* ReportSectionView.swift in Sources */,
+				EF74A65E759C7373018293B6 /* ChatView.swift in Sources */,
+				A38CC8722A784FB1E4354ACC /* ChatBubbleView.swift in Sources */,
+				BE5BF199D454A7C9A4597616 /* ChatInputView.swift in Sources */,
+				851304B8B79C8AFDAD170BA5 /* SuggestedQuestionsView.swift in Sources */,
+				74A0E88230E5C4A81AD9688A /* AIReportViewModel.swift in Sources */,
+				38E5A40D181F33F9ED5A6980 /* AIChatViewModel.swift in Sources */,
+				9DA0D966D65B31784D3B266B /* DeepLink.swift in Sources */,
+				D49C366613794E371A79FFA3 /* NavigationCoordinator.swift in Sources */,
+				F36C5E5A4382DC36F8211B53 /* ChartInteractionState.swift in Sources */,
+				6BF998FAE7A102A0742B72CD /* ChartGestureHandler.swift in Sources */,
+				CD5F86DF5E3D07B1D07E080D /* TappablePlanetSymbol.swift in Sources */,
+				7A68EE61D1C05F2C3AEAEA6C /* PlanetQuickInfoPopup.swift in Sources */,
+				4785EE1EC2D09DC23FA038BF /* HouseInfoPopup.swift in Sources */,
+				74CF73C41445F95EE7CFEBBB /* ChartLoadAnimation.swift in Sources */,
+				A137D4233AAB5098963186A2 /* AppTheme.swift in Sources */,
+				78BAF78A20068E3DFB05E73C /* CustomReminder.swift in Sources */,
+				C9F2689ACF6DAE0BC8BF5963 /* Festival.swift in Sources */,
+				998936B81AF229602AF39A5D /* ChartComparison.swift in Sources */,
+				5D913CF73CEC5985FA5E6850 /* HoraService.swift in Sources */,
+				B2AD2998F04859D07162D16A /* FestivalService.swift in Sources */,
+				5ACA15C09570CB46EBE5D344 /* SynastryService.swift in Sources */,
+				5AD084BCC046F14FBD16EDD0 /* HoraView.swift in Sources */,
+				82E02A78D7A8C2F5C91A23A9 /* HoraCard.swift in Sources */,
+				23932601B3A869DD634A0372 /* CreateReminderView.swift in Sources */,
+				28691393474F4A99D1237757 /* RemindersListView.swift in Sources */,
+				2EF83DBE14FB82DD1A2C0CE0 /* FestivalCalendarView.swift in Sources */,
+				1EFA16DAFFAEA7E637871265 /* FestivalDetailView.swift in Sources */,
+				EAAD6A6F4E28F9B6B97854B8 /* WesternCircularChart.swift in Sources */,
+				2B1612157B4ED8BDA5775774 /* AspectLinesOverlay.swift in Sources */,
+				36F5556E97A8074CC2785BF0 /* ChartComparisonView.swift in Sources */,
+				B74442BDF6DEDD2A9AC4CD04 /* SynastryAspectList.swift in Sources */,
+				990C4A2399448313D89F7D91 /* KundliApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		407798212F2B2ADC0033CC84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = W96AZZ5X2R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stealth.kundlitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		407798222F2B2ADC0033CC84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = W96AZZ5X2R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stealth.kundlitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AADEBUGCONFIG /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AARELEASECONFIG /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AATARGETDEBUG /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Kundli/Preview Content\"";
+				DEVELOPMENT_TEAM = W96AZZ5X2R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kundli.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AATARGETRELEASE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Kundli/Preview Content\"";
+				DEVELOPMENT_TEAM = W96AZZ5X2R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kundli.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		407798202F2B2ADC0033CC84 /* Build configuration list for PBXNativeTarget "kundlitests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407798212F2B2ADC0033CC84 /* Debug */,
+				407798222F2B2ADC0033CC84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABUILDCONFIGLIST /* Build configuration list for PBXNativeTarget "Kundli" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AATARGETDEBUG /* Debug */,
+				AATARGETRELEASE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAPROJECTBUILDCONFIGLIST /* Build configuration list for PBXProject "Kundli" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AADEBUGCONFIG /* Debug */,
+				AARELEASECONFIG /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		407797F32F2A6C010033CC84 /* XCRemoteSwiftPackageReference "SwissEphemeris" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vsmithers1087/SwissEphemeris";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.99;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		407797F42F2A6C010033CC84 /* SwissEphemeris */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 407797F32F2A6C010033CC84 /* XCRemoteSwiftPackageReference "SwissEphemeris" */;
+			productName = SwissEphemeris;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AAPROJECT /* Project object */;
+}
