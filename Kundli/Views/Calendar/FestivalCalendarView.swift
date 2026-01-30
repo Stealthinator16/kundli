@@ -28,6 +28,16 @@ struct FestivalCalendarView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Color.kundliCardBg, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    GrahaPraveshView()
+                } label: {
+                    Image(systemName: "house.fill")
+                        .foregroundColor(.kundliPrimary)
+                }
+            }
+        }
         .sheet(item: $selectedFestival) { festival in
             FestivalDetailView(festival: festival)
         }
@@ -306,6 +316,7 @@ struct FestivalCalendarView: View {
         case .auspicious: return .kundliInfo
         case .regional: return .purple
         case .newYear: return .red
+        case .grahaPravesh: return .teal
         }
     }
 

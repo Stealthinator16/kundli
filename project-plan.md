@@ -15,7 +15,7 @@ A complete Vedic Astrology (Kundli) iOS app with AI-powered analysis, detailed r
 | Week 1 | Core Calculations | ✅ 100% Complete |
 | Week 2 | AI Reports & Chat | ✅ 100% Complete (all 16 report types) |
 | Week 3 | UI/UX Enhancements | ✅ 100% Complete |
-| Week 4 | Advanced Features | ⏳ ~40% Complete |
+| Week 4 | Advanced Features | ⏳ ~60% Complete |
 
 ---
 
@@ -116,14 +116,29 @@ A complete Vedic Astrology (Kundli) iOS app with AI-powered analysis, detailed r
   - Compatibility scoring
   - Aspect filtering by nature
 
-**Week 4 - Advanced Features:** ⏳ ~40% COMPLETE
+**Week 4 - Advanced Features:** ⏳ ~60% COMPLETE
 - [x] Local data persistence (SwiftData)
 - [x] AI key secure storage (Keychain via AIKeyManager)
 - [x] Horoscope views (daily/weekly/monthly/yearly)
 - [x] Calculation settings (ayanamsa, house system)
 - [x] Notification settings (comprehensive controls)
 - [x] Performance optimizations (caching, async/await)
-- [ ] iCloud sync - NOT implemented
+- [x] **iCloud Sync** ✅ IMPLEMENTED (SyncService, CloudKit integration)
+  - Syncs SavedKundli, ChatConversation, CustomReminder across devices
+  - Settings UI in iCloudSyncView
+  - Automatic sync with CloudKit database
+- [x] **Composite Chart** ✅ IMPLEMENTED (CompositeChartService)
+  - Midpoint chart calculation from two natal charts
+  - North Indian, South Indian, Western display styles
+- [x] **Graha Pravesh Dates** ✅ IMPLEMENTED (GrahaPraveshService)
+  - Auspicious house-warming dates calculation
+  - Integration with Festival Calendar
+- [x] **Birthday Reminders** ✅ IMPLEMENTED
+  - Set reminders for saved kundli birthdays
+  - Configurable notification timing
+- [x] **Marriage Muhurta** ✅ IMPLEMENTED (MarriageMuhurtaService)
+  - Auspicious marriage date recommendations
+  - Integration with matching flow
 - [ ] Premium features - NOT implemented
 - [ ] Learning center - NOT implemented
 - [ ] Accessibility - NOT implemented
@@ -473,17 +488,17 @@ A complete Vedic Astrology (Kundli) iOS app with AI-powered analysis, detailed r
   - Financial compatibility ✅
   - Family compatibility ✅
 
-- [x] **Matching Report** ✅ PARTIALLY IMPLEMENTED
+- [x] **Matching Report** ✅ FULLY IMPLEMENTED
   - [x] AI-generated compatibility narrative (via Gun Milan display)
   - [x] Strengths of the match
   - [x] Areas of concern
   - [x] Remedies for doshas (framework in place)
-  - [ ] Recommended muhurtas for marriage (not integrated in matching)
+  - [x] Recommended muhurtas for marriage ✅ (MarriageMuhurtaService, MarriageMuhurtaView)
 
-- [x] **Multi-Chart Comparison** ✅ IMPLEMENTED (Views/Comparison/)
+- [x] **Multi-Chart Comparison** ✅ FULLY IMPLEMENTED (Views/Comparison/)
   - [x] Side-by-side chart view (ChartComparisonView.swift)
   - [x] Synastry aspects (SynastryService.swift, SynastryAspectList.swift)
-  - [ ] Composite chart - NOT implemented
+  - [x] Composite chart ✅ (CompositeChartService.swift, CompositeChartView.swift)
 
 #### 3.3 Panchang Features
 - [x] **Daily Panchang View** ✅ FULLY IMPLEMENTED
@@ -521,7 +536,7 @@ A complete Vedic Astrology (Kundli) iOS app with AI-powered analysis, detailed r
   - [x] Calendar/list view toggle
   - [x] Fasting days (Ekadashi, Pradosh, etc.) - via Remedy.swift FastingDay struct
   - [x] Solar/Lunar eclipse alerts - via Grahan Dosha detection
-  - [ ] Graha Pravesh dates - NOT implemented
+  - [x] Graha Pravesh dates ✅ (GrahaPraveshService.swift, GrahaPraveshView.swift)
 
 #### 3.4 Notifications & Reminders
 - [x] **Daily Notifications** ✅ FULLY IMPLEMENTED (NotificationService.swift)
@@ -543,16 +558,16 @@ A complete Vedic Astrology (Kundli) iOS app with AI-powered analysis, detailed r
   - [x] Reminder creation UI (CreateReminderView.swift)
   - [x] Reminder list management (RemindersListView.swift)
   - [x] Push notification scheduling (NotificationService.swift)
-  - [ ] Birthday kundli reminders - NOT implemented
+  - [x] Birthday kundli reminders ✅ IMPLEMENTED (NotificationService.swift, SavedKundlisView.swift)
 
 ---
 
 ### Week 4: Advanced Features & Polish
 
 #### 4.1 User Account & Data
-- [x] **Profile Management** ✅ PARTIALLY IMPLEMENTED
+- [x] **Profile Management** ✅ MOSTLY IMPLEMENTED
   - [ ] User registration (optional) - NOT implemented
-  - [ ] iCloud sync for kundlis - NOT implemented
+  - [x] iCloud sync for kundlis ✅ IMPLEMENTED (SyncService.swift, CloudKit integration)
   - [x] Multiple profiles (family members) - via SavedKundli SwiftData
   - [ ] Profile photos - NOT implemented
   - [x] Nickname for each kundli - name field in BirthDetails

@@ -307,13 +307,19 @@ final class FestivalService {
     /// Get festivals for a specific year with calculated dates
     /// Note: This uses simplified date approximations. For accurate dates,
     /// integration with a proper Panchang calculation would be needed.
-    func getFestivalsForYear(_ year: Int) -> [FestivalInstance] {
+    func getFestivalsForYear(_ year: Int, includeGrahaPravesh: Bool = true) -> [FestivalInstance] {
         var instances: [FestivalInstance] = []
 
         for festival in allFestivals {
             if let date = approximateFestivalDate(festival, year: year) {
                 instances.append(FestivalInstance(festival: festival, date: date, year: year))
             }
+        }
+
+        // Include Graha Pravesh auspicious dates
+        if includeGrahaPravesh {
+            let grahaPraveshDates = GrahaPraveshService.shared.getGrahaPraveshFestivals(for: year)
+            instances.append(contentsOf: grahaPraveshDates)
         }
 
         return instances.sorted { $0.date < $1.date }
@@ -349,6 +355,20 @@ final class FestivalService {
         let calendar = Calendar.current
         let year = calendar.component(.year, from: Date())
         return getFestivalsForYear(year).filter { $0.isToday }
+    }
+
+    /// Get upcoming Graha Pravesh dates
+    func getUpcomingGrahaPraveshDates(limit: Int = 6) -> [GrahaPraveshDate] {
+        return GrahaPraveshService.shared.getUpcomingGrahaPraveshDates(limit: limit)
+    }
+
+    /// Get Graha Pravesh dates for a specific month
+    func getGrahaPraveshForMonth(month: Int, year: Int) -> [FestivalInstance] {
+        let calendar = Calendar.current
+        let grahaPraveshDates = GrahaPraveshService.shared.getGrahaPraveshFestivals(for: year)
+        return grahaPraveshDates.filter { instance in
+            calendar.component(.month, from: instance.date) == month
+        }
     }
 
     // MARK: - Private Methods

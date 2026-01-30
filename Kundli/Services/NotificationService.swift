@@ -583,6 +583,93 @@ final class NotificationService {
         }
     }
 
+    // MARK: - Birthday Reminders
+
+    /// Schedule a birthday reminder for a saved kundli
+    /// The reminder will trigger on the person's birthday every year
+    func scheduleBirthdayReminder(for savedKundli: SavedKundli, notifyDaysBefore: Int = 0) async {
+        let calendar = Calendar.current
+
+        // Get birth date components
+        let birthMonth = calendar.component(.month, from: savedKundli.dateOfBirth)
+        let birthDay = calendar.component(.day, from: savedKundli.dateOfBirth)
+
+        // Calculate the next birthday
+        var nextBirthdayComponents = DateComponents()
+        nextBirthdayComponents.month = birthMonth
+        nextBirthdayComponents.day = birthDay - notifyDaysBefore
+        nextBirthdayComponents.hour = 9  // Notify at 9 AM
+        nextBirthdayComponents.minute = 0
+
+        // Adjust for days before (handle month boundary)
+        if notifyDaysBefore > 0 && birthDay - notifyDaysBefore <= 0 {
+            // Need to go to previous month
+            let adjustedMonth = birthMonth == 1 ? 12 : birthMonth - 1
+            let daysInPreviousMonth = calendar.range(of: .day, in: .month, for: calendar.date(from: DateComponents(month: adjustedMonth))!)?.count ?? 30
+            nextBirthdayComponents.month = adjustedMonth
+            nextBirthdayComponents.day = daysInPreviousMonth + (birthDay - notifyDaysBefore)
+        }
+
+        let trigger = UNCalendarNotificationTrigger(
+            dateMatching: nextBirthdayComponents,
+            repeats: true  // Repeat yearly
+        )
+
+        let content = UNMutableNotificationContent()
+
+        if notifyDaysBefore == 0 {
+            content.title = "Birthday Today!"
+            content.body = "Today is \(savedKundli.name)'s birthday! View their kundli for birthday predictions."
+        } else if notifyDaysBefore == 1 {
+            content.title = "Birthday Tomorrow"
+            content.body = "\(savedKundli.name)'s birthday is tomorrow! Check their yearly predictions."
+        } else {
+            content.title = "Upcoming Birthday"
+            content.body = "\(savedKundli.name)'s birthday is in \(notifyDaysBefore) days."
+        }
+
+        content.sound = .default
+        content.categoryIdentifier = NotificationCategory.customReminder.rawValue
+        content.userInfo = [
+            "kundliId": savedKundli.id.uuidString,
+            "type": "birthday"
+        ]
+
+        let identifier = "birthday-\(savedKundli.id.uuidString)"
+
+        let request = UNNotificationRequest(
+            identifier: identifier,
+            content: content,
+            trigger: trigger
+        )
+
+        do {
+            try await notificationCenter.add(request)
+        } catch {
+            print("Failed to schedule birthday reminder: \(error.localizedDescription)")
+        }
+    }
+
+    /// Cancel birthday reminder for a kundli
+    func cancelBirthdayReminder(for kundliId: UUID) {
+        let identifier = "birthday-\(kundliId.uuidString)"
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+
+    /// Check if birthday reminder exists for a kundli
+    func hasBirthdayReminder(for kundliId: UUID) async -> Bool {
+        let identifier = "birthday-\(kundliId.uuidString)"
+        let requests = await notificationCenter.pendingNotificationRequests()
+        return requests.contains { $0.identifier == identifier }
+    }
+
+    /// Schedule birthday reminders for all saved kundlis
+    func scheduleAllBirthdayReminders(_ savedKundlis: [SavedKundli]) async {
+        for kundli in savedKundlis {
+            await scheduleBirthdayReminder(for: kundli)
+        }
+    }
+
     // MARK: - Management
 
     /// Remove all pending notifications

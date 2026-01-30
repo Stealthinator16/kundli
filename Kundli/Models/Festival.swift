@@ -73,6 +73,7 @@ enum FestivalCategory: String, CaseIterable, Codable {
     case auspicious = "Auspicious Day"
     case regional = "Regional"
     case newYear = "New Year"
+    case grahaPravesh = "Graha Pravesh"
 
     var icon: String {
         switch self {
@@ -82,6 +83,7 @@ enum FestivalCategory: String, CaseIterable, Codable {
         case .auspicious: return "sparkles"
         case .regional: return "map.fill"
         case .newYear: return "calendar.badge.plus"
+        case .grahaPravesh: return "house.fill"
         }
     }
 
@@ -93,6 +95,7 @@ enum FestivalCategory: String, CaseIterable, Codable {
         case .auspicious: return "blue"
         case .regional: return "purple"
         case .newYear: return "red"
+        case .grahaPravesh: return "teal"
         }
     }
 }

@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import UserNotifications
+import CloudKit
 
 @main
 struct KundliApp: App {
@@ -15,18 +16,47 @@ struct KundliApp: App {
             ChatConversation.self,
             CustomReminder.self,
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+
+        // Check if iCloud sync is enabled
+        let syncEnabled = UserDefaults.standard.bool(forKey: "com.kundli.sync.enabled")
+
+        let modelConfiguration: ModelConfiguration
+
+        if syncEnabled {
+            // CloudKit-enabled configuration for iCloud sync
+            modelConfiguration = ModelConfiguration(
+                schema: schema,
+                isStoredInMemoryOnly: false,
+                cloudKitDatabase: .automatic
+            )
+        } else {
+            // Local-only configuration
+            modelConfiguration = ModelConfiguration(
+                schema: schema,
+                isStoredInMemoryOnly: false
+            )
+        }
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+            // If CloudKit fails, fall back to local storage
+            print("CloudKit container creation failed, falling back to local: \(error)")
+            let localConfig = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+            do {
+                return try ModelContainer(for: schema, configurations: [localConfig])
+            } catch {
+                fatalError("Could not create ModelContainer: \(error)")
+            }
         }
     }()
 
     init() {
         // Initialize ephemeris service at app startup
         EphemerisService.shared.initialize()
+
+        // Initialize sync service to check cloud status
+        _ = SyncService.shared
     }
 
     var body: some Scene {
