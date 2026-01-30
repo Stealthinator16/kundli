@@ -13,6 +13,9 @@ struct SettingsView: View {
                     // AI Settings Section
                     aiSettingsSection
 
+                    // iCloud Sync Section
+                    iCloudSyncSection
+
                     // Calculation Settings Section
                     calculationSettingsSection
 
@@ -84,6 +87,58 @@ struct SettingsView: View {
                     .buttonStyle(.plain)
                 }
             }
+        }
+    }
+
+    // MARK: - iCloud Sync Section
+
+    private var iCloudSyncSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionHeader("iCloud Sync", icon: "icloud.fill")
+
+            CardView {
+                VStack(spacing: 0) {
+                    NavigationLink {
+                        iCloudSyncView()
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("iCloud Sync")
+                                    .font(.kundliSubheadline)
+                                    .foregroundColor(.kundliTextPrimary)
+
+                                Text(SyncService.shared.statusDescription)
+                                    .font(.kundliCaption)
+                                    .foregroundColor(.kundliTextSecondary)
+                            }
+
+                            Spacer()
+
+                            HStack(spacing: 8) {
+                                Image(systemName: SyncService.shared.syncStatus.icon)
+                                    .foregroundColor(syncStatusColor)
+
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.kundliTextSecondary)
+                            }
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 14)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
+
+    private var syncStatusColor: Color {
+        switch SyncService.shared.syncStatus {
+        case .synced: return .kundliSuccess
+        case .syncing: return .kundliInfo
+        case .error: return .kundliError
+        case .unavailable, .disabled: return .kundliWarning
+        case .notStarted: return .kundliTextSecondary
         }
     }
 
