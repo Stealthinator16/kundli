@@ -305,10 +305,57 @@ struct KundliMatchingView: View {
                     }
                 }
 
+                // Marriage Muhurta Recommendations
+                marriageMuhurtaSection
+
                 Spacer()
                     .frame(height: 20)
             }
             .padding(16)
+        }
+    }
+
+    // MARK: - Marriage Muhurta Section
+
+    @ViewBuilder
+    private var marriageMuhurtaSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: "calendar.badge.clock")
+                    .font(.system(size: 14))
+                    .foregroundColor(.pink)
+
+                Text("Recommended Marriage Dates")
+                    .font(.kundliHeadline)
+                    .foregroundColor(.kundliTextPrimary)
+            }
+
+            NavigationLink {
+                MarriageMuhurtaListView()
+            } label: {
+                CardView {
+                    VStack(alignment: .leading, spacing: 12) {
+                        // Preview of upcoming dates
+                        MarriageMuhurtaPreview()
+
+                        Divider()
+                            .background(Color.white.opacity(0.1))
+
+                        HStack {
+                            Text("View All Auspicious Dates")
+                                .font(.kundliSubheadline)
+                                .foregroundColor(.kundliPrimary)
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 12))
+                                .foregroundColor(.kundliPrimary)
+                        }
+                    }
+                }
+            }
+            .buttonStyle(.plain)
         }
     }
 

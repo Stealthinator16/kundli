@@ -31,6 +31,9 @@ struct ChartComparisonView: View {
                         // Detailed aspects
                         detailedAspectsSection(comparison: comparison)
 
+                        // Composite chart link
+                        compositeChartSection
+
                         Spacer()
                             .frame(height: 20)
                     }
@@ -249,6 +252,44 @@ struct ChartComparisonView: View {
             sectionHeader("All Aspects (\(comparison.synastryAspects.count))", icon: "list.bullet")
 
             SynastryAspectList(aspects: comparison.synastryAspects)
+        }
+    }
+
+    // MARK: - Composite Chart Section
+
+    private var compositeChartSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            sectionHeader("Relationship Chart", icon: "person.2.fill")
+
+            NavigationLink {
+                CompositeChartView(kundli1: kundli1, kundli2: kundli2)
+            } label: {
+                CardView {
+                    HStack(spacing: 16) {
+                        Image(systemName: "chart.pie.fill")
+                            .font(.system(size: 24))
+                            .foregroundColor(.kundliPrimary)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("View Composite Chart")
+                                .font(.kundliSubheadline)
+                                .foregroundColor(.kundliTextPrimary)
+
+                            Text("A merged chart representing the relationship itself")
+                                .font(.kundliCaption)
+                                .foregroundColor(.kundliTextSecondary)
+                                .multilineTextAlignment(.leading)
+                        }
+
+                        Spacer()
+
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 14))
+                            .foregroundColor(.kundliTextSecondary)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
         }
     }
 
