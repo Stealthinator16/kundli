@@ -41,6 +41,8 @@ class AIReportViewModel {
     ) async {
         guard !isGenerating else { return }
 
+        let kundliId = savedKundli.id
+
         await MainActor.run {
             isGenerating = true
             error = nil
@@ -71,7 +73,7 @@ class AIReportViewModel {
                 currentReport = report
                 isGenerating = false
                 // Refresh cached reports
-                loadCachedReports(for: savedKundli.id)
+                loadCachedReports(for: kundliId)
             }
         } catch let aiError as AIError {
             await MainActor.run {

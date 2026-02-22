@@ -4,8 +4,8 @@ import SwiftData
 struct BirthChartView: View {
     @Bindable var viewModel: KundliViewModel
     @Environment(\.modelContext) private var modelContext
+    @Query private var existingKundlis: [SavedKundli]
     @State private var selectedChartStyle: ChartStyle = .northIndian
-    @State private var showPlanetDetails = false
     @State private var selectedPlanet: Planet?
     @State private var showSaveAlert = false
     @State private var isSaved = false
@@ -48,7 +48,6 @@ struct BirthChartView: View {
 
                             PlanetaryListView(planets: kundli.planets) { planet in
                                 selectedPlanet = planet
-                                showPlanetDetails = true
                             }
                         }
 
@@ -75,8 +74,41 @@ struct BirthChartView: View {
                     }
                     .padding(16)
                 }
+            } else if let error = viewModel.generationError {
+                // Error state
+                VStack(spacing: 16) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.system(size: 40))
+                        .foregroundColor(.kundliWarning)
+
+                    Text("Chart Generation Failed")
+                        .font(.kundliHeadline)
+                        .foregroundColor(.kundliTextPrimary)
+
+                    Text(error)
+                        .font(.kundliCaption)
+                        .foregroundColor(.kundliTextSecondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 32)
+
+                    Button {
+                        viewModel.generateKundli()
+                    } label: {
+                        HStack {
+                            Image(systemName: "arrow.clockwise")
+                            Text("Retry")
+                        }
+                        .foregroundColor(.kundliPrimary)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 10)
+                        .background(
+                            Capsule()
+                                .stroke(Color.kundliPrimary, lineWidth: 1)
+                        )
+                    }
+                }
             } else {
-                // Loading or empty state
+                // Loading state
                 VStack(spacing: 16) {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: .kundliPrimary))
@@ -102,23 +134,29 @@ struct BirthChartView: View {
                 .disabled(isSaved)
             }
         }
-        .sheet(isPresented: $showPlanetDetails) {
-            if let planet = selectedPlanet {
-                PlanetDetailSheet(planet: planet)
-            }
+        .sheet(item: $selectedPlanet) { planet in
+            PlanetDetailSheet(planet: planet)
         }
         .alert("Kundli Saved", isPresented: $showSaveAlert) {
             Button("OK", role: .cancel) {}
         } message: {
             Text("This kundli has been saved to your collection.")
         }
+        .onChange(of: viewModel.kundli != nil) { _, hasKundli in
+            // Auto-save first kundli silently when generation completes
+            if hasKundli && existingKundlis.isEmpty && !isSaved {
+                saveKundli(silent: true)
+            }
+        }
     }
 
-    private func saveKundli() {
+    private func saveKundli(silent: Bool = false) {
         guard let savedKundli = viewModel.createSavedKundli() else { return }
         modelContext.insert(savedKundli)
         isSaved = true
-        showSaveAlert = true
+        if !silent {
+            showSaveAlert = true
+        }
     }
 
     private func birthInfoCard(kundli: Kundli) -> some View {
@@ -269,7 +307,6 @@ struct BirthChartView: View {
                             onViewDetails: {
                                 chartInteractionState.clearSelection()
                                 selectedPlanet = planet
-                                showPlanetDetails = true
                             }
                         )
                         .transition(.scale.combined(with: .opacity))
@@ -318,7 +355,8 @@ struct BirthChartView: View {
         .onChange(of: selectedChartStyle) { _, _ in
             chartInteractionState.resetAnimation()
             chartInteractionState.clearSelection()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            Task {
+                try? await Task.sleep(for: .milliseconds(100))
                 chartInteractionState.startLoadAnimation()
             }
         }

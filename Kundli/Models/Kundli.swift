@@ -43,7 +43,7 @@ struct Kundli: Identifiable, Equatable {
 }
 
 // MARK: - Ascendant (Lagna)
-struct Ascendant {
+struct Ascendant: Codable {
     let sign: ZodiacSign
     let degree: Double
     let minutes: Int

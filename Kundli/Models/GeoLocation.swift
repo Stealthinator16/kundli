@@ -24,7 +24,7 @@ struct GeoLocation: Codable, Equatable {
         self.latitude = city.latitude
         self.longitude = city.longitude
         self.altitude = 0
-        self.timezone = TimeZone(identifier: city.timezone) ?? TimeZone(abbreviation: "IST")!
+        self.timezone = TimeZone(identifier: city.timezone) ?? GeoLocation.indiaTimeZone
     }
 
     /// Create from BirthDetails
@@ -32,7 +32,7 @@ struct GeoLocation: Codable, Equatable {
         self.latitude = details.latitude
         self.longitude = details.longitude
         self.altitude = 0
-        self.timezone = TimeZone(identifier: details.timezone) ?? TimeZone(abbreviation: "IST")!
+        self.timezone = TimeZone(identifier: details.timezone) ?? GeoLocation.indiaTimeZone
     }
 
     // MARK: - Codable
@@ -47,7 +47,7 @@ struct GeoLocation: Codable, Equatable {
         longitude = try container.decode(Double.self, forKey: .longitude)
         altitude = try container.decodeIfPresent(Double.self, forKey: .altitude) ?? 0
         let timezoneId = try container.decode(String.self, forKey: .timezoneIdentifier)
-        timezone = TimeZone(identifier: timezoneId) ?? TimeZone(abbreviation: "UTC")!
+        timezone = TimeZone(identifier: timezoneId) ?? .current
     }
 
     func encode(to encoder: Encoder) throws {
@@ -61,33 +61,34 @@ struct GeoLocation: Codable, Equatable {
 
 // MARK: - Common Indian Cities
 extension GeoLocation {
+    private static let indiaTimeZone = TimeZone(identifier: "Asia/Kolkata") ?? .current
     static let newDelhi = GeoLocation(
         latitude: 28.6139,
         longitude: 77.2090,
-        timezone: TimeZone(identifier: "Asia/Kolkata")!
+        timezone: GeoLocation.indiaTimeZone
     )
 
     static let mumbai = GeoLocation(
         latitude: 19.0760,
         longitude: 72.8777,
-        timezone: TimeZone(identifier: "Asia/Kolkata")!
+        timezone: GeoLocation.indiaTimeZone
     )
 
     static let chennai = GeoLocation(
         latitude: 13.0827,
         longitude: 80.2707,
-        timezone: TimeZone(identifier: "Asia/Kolkata")!
+        timezone: GeoLocation.indiaTimeZone
     )
 
     static let kolkata = GeoLocation(
         latitude: 22.5726,
         longitude: 88.3639,
-        timezone: TimeZone(identifier: "Asia/Kolkata")!
+        timezone: GeoLocation.indiaTimeZone
     )
 
     static let bangalore = GeoLocation(
         latitude: 12.9716,
         longitude: 77.5946,
-        timezone: TimeZone(identifier: "Asia/Kolkata")!
+        timezone: GeoLocation.indiaTimeZone
     )
 }

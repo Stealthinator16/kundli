@@ -117,7 +117,8 @@ final class ChartInteractionState {
         }
 
         // Delay clearing the data so the dismissal animation completes
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+        Task { @MainActor [weak self] in
+            try? await Task.sleep(for: .milliseconds(200))
             self?.selectedPlanet = nil
             self?.selectedHouse = nil
         }
@@ -132,8 +133,9 @@ final class ChartInteractionState {
         }
 
         // Then stagger animate each house
-        for house in 1...12 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(house) * 0.03) { [weak self] in
+        Task { @MainActor [weak self] in
+            for house in 1...12 {
+                try? await Task.sleep(for: .milliseconds(30))
                 withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
                     self?.houseAnimationProgress[house] = true
                 }

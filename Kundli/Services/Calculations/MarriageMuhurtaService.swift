@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 /// Service for calculating auspicious marriage (Vivah) muhurtas
 /// Marriage muhurta selection is based on multiple factors including
@@ -37,7 +38,7 @@ final class MarriageMuhurtaService {
         .ardra,           // Ruled by Rudra (tears)
         .ashlesha,        // Serpent nakshatra
         .jyeshtha,        // Elder problems
-        .moola            // Root destruction (some traditions)
+        .mula             // Root destruction (some traditions)
     ]
 
     /// Tithis considered auspicious for marriage
@@ -70,15 +71,23 @@ final class MarriageMuhurtaService {
     // MARK: - Main Calculation
 
     /// Get auspicious marriage dates for a given year
-    func getMarriageMuhurtas(for year: Int, limit: Int = 10) -> [MarriageMuhurta] {
+    func getMarriageMuhurtas(
+        for year: Int,
+        latitude: Double = 28.6139,
+        longitude: Double = 77.2090,
+        timezone: TimeZone = TimeZone(identifier: "Asia/Kolkata") ?? .current,
+        limit: Int = 10
+    ) -> [MarriageMuhurta] {
         var auspiciousDates: [MarriageMuhurta] = []
-        let calendar = Calendar.current
 
         // Define the favorable months to search
         let favorableMonthNumbers: [Int] = [1, 2, 3, 4, 5, 11, 12]
 
         for month in favorableMonthNumbers {
-            let datesInMonth = findAuspiciousDatesInMonth(year: year, month: month)
+            let datesInMonth = findAuspiciousDatesInMonth(
+                year: year, month: month,
+                latitude: latitude, longitude: longitude, timezone: timezone
+            )
             auspiciousDates.append(contentsOf: datesInMonth)
         }
 
@@ -89,16 +98,21 @@ final class MarriageMuhurtaService {
     }
 
     /// Get upcoming marriage muhurtas from current date
-    func getUpcomingMarriageMuhurtas(limit: Int = 6) -> [MarriageMuhurta] {
+    func getUpcomingMarriageMuhurtas(
+        latitude: Double = 28.6139,
+        longitude: Double = 77.2090,
+        timezone: TimeZone = TimeZone(identifier: "Asia/Kolkata") ?? .current,
+        limit: Int = 6
+    ) -> [MarriageMuhurta] {
         let calendar = Calendar.current
         let today = Date()
         let currentYear = calendar.component(.year, from: today)
 
-        var dates = getMarriageMuhurtas(for: currentYear, limit: limit * 2)
+        var dates = getMarriageMuhurtas(for: currentYear, latitude: latitude, longitude: longitude, timezone: timezone, limit: limit * 2)
 
         // Add next year's dates if needed
         if dates.filter({ $0.date >= today }).count < limit {
-            dates.append(contentsOf: getMarriageMuhurtas(for: currentYear + 1, limit: limit))
+            dates.append(contentsOf: getMarriageMuhurtas(for: currentYear + 1, latitude: latitude, longitude: longitude, timezone: timezone, limit: limit))
         }
 
         return dates
@@ -109,7 +123,10 @@ final class MarriageMuhurtaService {
     }
 
     /// Find auspicious marriage dates in a specific month
-    private func findAuspiciousDatesInMonth(year: Int, month: Int) -> [MarriageMuhurta] {
+    private func findAuspiciousDatesInMonth(
+        year: Int, month: Int,
+        latitude: Double, longitude: Double, timezone: TimeZone
+    ) -> [MarriageMuhurta] {
         var dates: [MarriageMuhurta] = []
         let calendar = Calendar.current
 
@@ -133,12 +150,12 @@ final class MarriageMuhurtaService {
                 continue
             }
 
-            // Calculate Panchang for this date (using default Delhi location)
+            // Calculate Panchang for this date
             let panchang = panchangService.calculatePanchang(
                 date: date,
-                latitude: 28.6139,
-                longitude: 77.2090,
-                timezone: TimeZone(identifier: "Asia/Kolkata")!
+                latitude: latitude,
+                longitude: longitude,
+                timezone: timezone
             )
 
             // Evaluate the date
@@ -342,12 +359,12 @@ enum MarriageMuhurtaQuality: String {
         }
     }
 
-    var color: String {
+    var color: Color {
         switch self {
-        case .excellent: return "gold"
-        case .veryGood: return "green"
-        case .good: return "blue"
-        case .fair: return "gray"
+        case .excellent: return .kundliPrimary
+        case .veryGood: return .kundliSuccess
+        case .good: return .kundliInfo
+        case .fair: return .kundliTextSecondary
         }
     }
 }

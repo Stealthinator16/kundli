@@ -52,12 +52,12 @@ struct MarriageMuhurtaPreview: View {
                         // Quality badge
                         Text(muhurta.qualityRating.rawValue)
                             .font(.system(size: 10, weight: .medium))
-                            .foregroundColor(qualityColor(muhurta.qualityRating))
+                            .foregroundColor(muhurta.qualityRating.color)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(
                                 Capsule()
-                                    .fill(qualityColor(muhurta.qualityRating).opacity(0.2))
+                                    .fill(muhurta.qualityRating.color.opacity(0.2))
                             )
                     }
                 }
@@ -70,21 +70,12 @@ struct MarriageMuhurtaPreview: View {
 
     private func loadDates() {
         isLoading = true
-        DispatchQueue.global(qos: .userInitiated).async {
+        Task {
             let dates = muhurtaService.getUpcomingMarriageMuhurtas(limit: 3)
-            DispatchQueue.main.async {
+            await MainActor.run {
                 upcomingDates = dates
                 isLoading = false
             }
-        }
-    }
-
-    private func qualityColor(_ quality: MarriageMuhurtaQuality) -> Color {
-        switch quality {
-        case .excellent: return .kundliPrimary
-        case .veryGood: return .kundliSuccess
-        case .good: return .kundliInfo
-        case .fair: return .kundliTextSecondary
         }
     }
 }
@@ -94,7 +85,6 @@ struct MarriageMuhurtaListView: View {
     @State private var muhurtas: [MarriageMuhurta] = []
     @State private var isLoading = true
     @State private var selectedMuhurta: MarriageMuhurta?
-    @State private var showDetailSheet = false
 
     private let muhurtaService = MarriageMuhurtaService.shared
 
@@ -117,10 +107,8 @@ struct MarriageMuhurtaListView: View {
         .onAppear {
             loadMuhurtas()
         }
-        .sheet(isPresented: $showDetailSheet) {
-            if let muhurta = selectedMuhurta {
-                MarriageMuhurtaDetailSheet(muhurta: muhurta)
-            }
+        .sheet(item: $selectedMuhurta) { muhurta in
+            MarriageMuhurtaDetailSheet(muhurta: muhurta)
         }
     }
 
@@ -149,6 +137,13 @@ struct MarriageMuhurtaListView: View {
             Text("Unable to calculate marriage muhurtas")
                 .font(.kundliSubheadline)
                 .foregroundColor(.kundliTextSecondary)
+
+            Button { loadMuhurtas() } label: {
+                Label("Retry", systemImage: "arrow.clockwise")
+                    .font(.kundliSubheadline)
+                    .foregroundColor(.kundliPrimary)
+            }
+            .padding(.top, 8)
         }
     }
 
@@ -166,7 +161,6 @@ struct MarriageMuhurtaListView: View {
                     ForEach(muhurtas) { muhurta in
                         MarriageMuhurtaCard(muhurta: muhurta) {
                             selectedMuhurta = muhurta
-                            showDetailSheet = true
                         }
                     }
                 }
@@ -213,35 +207,19 @@ struct MarriageMuhurtaListView: View {
                     .background(Color.white.opacity(0.1))
 
                 HStack(spacing: 8) {
-                    factorChip("Nakshatra", icon: "star.fill")
-                    factorChip("Tithi", icon: "moon.fill")
-                    factorChip("Yoga", icon: "sparkles")
+                    FactorChipView(text: "Nakshatra", icon: "star.fill", accentColor: .pink)
+                    FactorChipView(text: "Tithi", icon: "moon.fill", accentColor: .pink)
+                    FactorChipView(text: "Yoga", icon: "sparkles", accentColor: .pink)
                 }
             }
         }
     }
 
-    private func factorChip(_ text: String, icon: String) -> some View {
-        HStack(spacing: 4) {
-            Image(systemName: icon)
-                .font(.system(size: 10))
-            Text(text)
-                .font(.system(size: 11))
-        }
-        .foregroundColor(.pink)
-        .padding(.horizontal, 8)
-        .padding(.vertical, 4)
-        .background(
-            Capsule()
-                .fill(Color.pink.opacity(0.15))
-        )
-    }
-
     private func loadMuhurtas() {
         isLoading = true
-        DispatchQueue.global(qos: .userInitiated).async {
+        Task {
             let dates = muhurtaService.getUpcomingMarriageMuhurtas(limit: 12)
-            DispatchQueue.main.async {
+            await MainActor.run {
                 muhurtas = dates
                 isLoading = false
             }
@@ -299,12 +277,12 @@ struct MarriageMuhurtaCard: View {
                         // Quality badge
                         HStack {
                             Circle()
-                                .fill(qualityColor)
+                                .fill(muhurta.qualityRating.color)
                                 .frame(width: 8, height: 8)
 
                             Text(muhurta.qualityRating.rawValue)
                                 .font(.system(size: 11, weight: .medium))
-                                .foregroundColor(qualityColor)
+                                .foregroundColor(muhurta.qualityRating.color)
                         }
                     }
 
@@ -329,15 +307,6 @@ struct MarriageMuhurtaCard: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
         return formatter.string(from: muhurta.date)
-    }
-
-    private var qualityColor: Color {
-        switch muhurta.qualityRating {
-        case .excellent: return .kundliPrimary
-        case .veryGood: return .kundliSuccess
-        case .good: return .kundliInfo
-        case .fair: return .kundliTextSecondary
-        }
     }
 }
 
@@ -457,12 +426,12 @@ struct MarriageMuhurtaDetailSheet: View {
 
                     Text(muhurta.qualityRating.rawValue)
                         .font(.kundliSubheadline)
-                        .foregroundColor(qualityColor)
+                        .foregroundColor(muhurta.qualityRating.color)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 4)
                         .background(
                             Capsule()
-                                .fill(qualityColor.opacity(0.2))
+                                .fill(muhurta.qualityRating.color.opacity(0.2))
                         )
                 }
 
@@ -478,7 +447,7 @@ struct MarriageMuhurtaDetailSheet: View {
                             .frame(height: 8)
 
                         RoundedRectangle(cornerRadius: 4)
-                            .fill(qualityColor)
+                            .fill(muhurta.qualityRating.color)
                             .frame(width: geometry.size.width * CGFloat(muhurta.qualityScore) / 12, height: 8)
                     }
                 }
@@ -582,14 +551,6 @@ struct MarriageMuhurtaDetailSheet: View {
         }
     }
 
-    private var qualityColor: Color {
-        switch muhurta.qualityRating {
-        case .excellent: return .kundliPrimary
-        case .veryGood: return .kundliSuccess
-        case .good: return .kundliInfo
-        case .fair: return .kundliTextSecondary
-        }
-    }
 }
 
 // MARK: - Preview

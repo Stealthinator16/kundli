@@ -39,6 +39,23 @@ struct ChartComparisonView: View {
                     }
                     .padding(16)
                 }
+            } else {
+                VStack(spacing: 16) {
+                    Image(systemName: "chart.bar.xaxis")
+                        .font(.system(size: 60))
+                        .foregroundColor(.kundliTextSecondary)
+
+                    Text("Unable to calculate comparison")
+                        .font(.kundliSubheadline)
+                        .foregroundColor(.kundliTextSecondary)
+
+                    Button { calculateComparison() } label: {
+                        Label("Retry", systemImage: "arrow.clockwise")
+                            .font(.kundliSubheadline)
+                            .foregroundColor(.kundliPrimary)
+                    }
+                    .padding(.top, 8)
+                }
             }
         }
         .navigationTitle("Chart Comparison")
@@ -329,10 +346,10 @@ struct ChartComparisonView: View {
     private func calculateComparison() {
         isLoading = true
 
-        DispatchQueue.global(qos: .userInitiated).async {
+        Task {
             let result = synastryService.calculateSynastry(kundli1: kundli1, kundli2: kundli2)
 
-            DispatchQueue.main.async {
+            await MainActor.run {
                 comparison = result
                 isLoading = false
             }

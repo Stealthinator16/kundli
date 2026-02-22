@@ -13,6 +13,25 @@ struct iCloudSyncView: View {
 
             ScrollView {
                 VStack(spacing: 24) {
+                    // Sync currently disabled notice
+                    CardView {
+                        HStack(spacing: 12) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .font(.system(size: 20))
+                                .foregroundColor(.kundliWarning)
+
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Sync Temporarily Unavailable")
+                                    .font(.kundliSubheadline)
+                                    .foregroundColor(.kundliTextPrimary)
+
+                                Text("iCloud sync is currently disabled while we improve stability. Your data is saved locally.")
+                                    .font(.kundliCaption)
+                                    .foregroundColor(.kundliTextSecondary)
+                            }
+                        }
+                    }
+
                     // Sync Status Card
                     syncStatusCard
 

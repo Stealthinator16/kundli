@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import CoreLocation
+import os
 
 @Observable
 class KundliViewModel {
@@ -39,6 +41,7 @@ class KundliViewModel {
     // Services
     private let kundliService = KundliGenerationService.shared
     private let settingsService = SettingsService.shared
+    private var geocodeTask: Task<Void, Never>?
 
     init() {
         // Load initial city list
@@ -66,7 +69,47 @@ class KundliViewModel {
     }
 
     func searchCities() {
-        searchResults = MockDataService.shared.searchCities(query: citySearchText)
+        let query = citySearchText.trimmingCharacters(in: .whitespaces)
+        guard query.count >= 2 else {
+            searchResults = MockDataService.shared.cities
+            return
+        }
+
+        geocodeTask?.cancel()
+        geocodeTask = Task {
+            try? await Task.sleep(for: .milliseconds(300))
+            guard !Task.isCancelled else { return }
+
+            let geocoder = CLGeocoder()
+            do {
+                let placemarks = try await geocoder.geocodeAddressString(query)
+                let cities = placemarks.compactMap { placemark -> City? in
+                    guard let name = placemark.locality,
+                          let location = placemark.location else { return nil }
+                    return City(
+                        name: name,
+                        state: placemark.administrativeArea ?? "",
+                        country: placemark.country ?? "",
+                        latitude: location.coordinate.latitude,
+                        longitude: location.coordinate.longitude,
+                        timezone: placemark.timeZone?.identifier ?? "UTC"
+                    )
+                }
+                guard !Task.isCancelled else { return }
+                await MainActor.run {
+                    searchResults = cities.isEmpty ? MockDataService.shared.cities : cities
+                }
+            } catch {
+                guard !Task.isCancelled else { return }
+                // Offline fallback: filter hardcoded cities
+                let filtered = MockDataService.shared.cities.filter {
+                    $0.name.localizedCaseInsensitiveContains(query)
+                }
+                await MainActor.run {
+                    searchResults = filtered.isEmpty ? MockDataService.shared.cities : filtered
+                }
+            }
+        }
     }
 
     func selectCity(_ city: City) {
@@ -114,22 +157,10 @@ class KundliViewModel {
                     self.isGenerating = false
                 }
             } catch {
-                // Fallback to mock data for graceful degradation
                 await MainActor.run {
-                    print("Kundli generation error: \(error.localizedDescription)")
+                    AppLogger.kundli.error("Kundli generation error: \(error.localizedDescription)")
                     self.generationError = error.localizedDescription
-
-                    // Use mock data as fallback
-                    let planets = MockDataService.shared.samplePlanets()
-                    let ascendant = MockDataService.shared.sampleAscendant()
-
-                    self.kundli = Kundli(
-                        birthDetails: details,
-                        planets: planets,
-                        ascendant: ascendant
-                    )
-
-                    self.dashaPeriods = MockDataService.shared.sampleDashaPeriods()
+                    self.kundli = nil
                     self.isGenerating = false
                 }
             }
@@ -197,7 +228,7 @@ class KundliViewModel {
     func createSavedKundli() -> SavedKundli? {
         guard let details = birthDetails, let kundli = kundli else { return nil }
 
-        return SavedKundli(
+        let saved = SavedKundli(
             id: details.id,
             name: details.name,
             dateOfBirth: details.dateOfBirth,
@@ -211,5 +242,10 @@ class KundliViewModel {
             ascendantDegree: kundli.ascendant.degree,
             ascendantNakshatra: kundli.ascendant.nakshatra
         )
+
+        saved.planetsData = try? JSONEncoder().encode(kundli.planets)
+        saved.ascendantData = try? JSONEncoder().encode(kundli.ascendant)
+
+        return saved
     }
 }

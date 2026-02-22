@@ -11,11 +11,15 @@ struct DashaPeriodsView: View {
                 VStack(spacing: 20) {
                     // Header info
                     VStack(spacing: 8) {
-                        Text("Vimshottari Dasha")
-                            .font(.kundliTitle2)
-                            .foregroundColor(.kundliTextPrimary)
+                        HStack {
+                            LearnableText(
+                                text: "Vimshottari Dasha",
+                                termId: "vimshottari-dasha",
+                                style: .title
+                            )
+                        }
 
-                        Text("120-year planetary period cycle")
+                        Text("Your life periods based on Moon's nakshatra at birth")
                             .font(.kundliSubheadline)
                             .foregroundColor(.kundliTextSecondary)
                     }
@@ -114,9 +118,12 @@ struct CurrentDashaSummaryCard: View {
     private func periodRow(level: String, planet: String, vedName: String, duration: String, isHighlighted: Bool) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                Text(level)
-                    .font(.kundliCaption)
-                    .foregroundColor(.kundliTextSecondary)
+                LearnableText(
+                    text: level,
+                    termId: level.lowercased(),
+                    style: .caption,
+                    showIndicator: false
+                )
 
                 HStack(spacing: 6) {
                     Text(planet)

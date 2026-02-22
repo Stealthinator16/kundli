@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import os
 
 struct SavedKundlisView: View {
     @Environment(\.modelContext) private var modelContext
@@ -404,47 +405,131 @@ struct BirthdayReminderSheet: View {
 
 struct SavedKundliDetailView: View {
     let savedKundli: SavedKundli
+    @Environment(\.modelContext) private var modelContext
     @State private var viewModel = KundliViewModel()
+    @State private var isLoading = true
+    @State private var loadError: String?
 
     var body: some View {
-        BirthChartView(viewModel: viewModel)
-            .onAppear {
-                loadKundli()
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: AIFeatureEntryView(savedKundli: savedKundli)) {
-                        Image(systemName: "sparkles")
-                            .foregroundColor(.kundliPrimary)
-                    }
+        ZStack {
+            BirthChartView(viewModel: viewModel)
+
+            if isLoading {
+                Color.kundliBackground.ignoresSafeArea()
+                VStack(spacing: 16) {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .kundliPrimary))
+                    Text("Loading chart data...")
+                        .font(.kundliSubheadline)
+                        .foregroundColor(.kundliTextSecondary)
                 }
             }
+
+            if let error = loadError {
+                Color.kundliBackground.ignoresSafeArea()
+                VStack(spacing: 16) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.system(size: 40))
+                        .foregroundColor(.kundliWarning)
+                    Text("Failed to load chart")
+                        .font(.kundliHeadline)
+                        .foregroundColor(.kundliTextPrimary)
+                    Text(error)
+                        .font(.kundliCaption)
+                        .foregroundColor(.kundliTextSecondary)
+                        .multilineTextAlignment(.center)
+                    Button("Retry") {
+                        loadError = nil
+                        loadKundli()
+                    }
+                    .foregroundColor(.kundliPrimary)
+                }
+                .padding()
+            }
+        }
+        .onAppear {
+            loadKundli()
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: AIFeatureEntryView(savedKundli: savedKundli)) {
+                    Image(systemName: "sparkles")
+                        .foregroundColor(.kundliPrimary)
+                }
+            }
+        }
     }
 
     private func loadKundli() {
-        // Load the saved kundli data into the view model
+        isLoading = true
         viewModel.birthDetails = savedKundli.toBirthDetails()
 
-        // Generate mock chart data (in real app, this would be stored/calculated)
-        let planets = MockDataService.shared.samplePlanets()
-        let ascendant = Ascendant(
-            sign: ZodiacSign(rawValue: savedKundli.ascendantSign) ?? .scorpio,
-            degree: savedKundli.ascendantDegree,
-            minutes: 0,
-            seconds: 0,
-            nakshatra: savedKundli.ascendantNakshatra,
-            nakshatraPada: 1,
-            lord: "Mars"
-        )
+        // Try to decode persisted chart data first
+        if let planets = savedKundli.decodePlanets(),
+           let ascendant = savedKundli.decodeAscendant() {
+            viewModel.kundli = Kundli(
+                id: savedKundli.id,
+                birthDetails: savedKundli.toBirthDetails(),
+                planets: planets,
+                ascendant: ascendant
+            )
+            isLoading = false
+            regenerateDashaAndYoga()
+            return
+        }
 
-        viewModel.kundli = Kundli(
-            id: savedKundli.id,
-            birthDetails: savedKundli.toBirthDetails(),
-            planets: planets,
-            ascendant: ascendant
-        )
+        // Fallback: regenerate from birth details
+        Task {
+            do {
+                let data = try await KundliGenerationService.shared.generateKundli(
+                    birthDetails: savedKundli.toBirthDetails(),
+                    settings: SettingsService.shared.calculationSettings
+                )
+                await MainActor.run {
+                    viewModel.kundli = data.toKundli()
+                    viewModel.dashaPeriods = data.dashaPeriods
+                    viewModel.yogas = data.yogas
+                    viewModel.doshas = data.doshas
+                    viewModel.divisionalCharts = data.divisionalCharts
+                    viewModel.planetaryStrengths = data.planetaryStrengths
+                    viewModel.ashtakavargaData = data.ashtakavargaData
+                    viewModel.transitData = data.transitData
+                    isLoading = false
 
-        viewModel.dashaPeriods = MockDataService.shared.sampleDashaPeriods()
+                    // Backfill persisted data for next time
+                    savedKundli.planetsData = try? JSONEncoder().encode(data.planets)
+                    savedKundli.ascendantData = try? JSONEncoder().encode(data.ascendant)
+                }
+            } catch {
+                await MainActor.run {
+                    loadError = error.localizedDescription
+                    isLoading = false
+                }
+            }
+        }
+    }
+
+    private func regenerateDashaAndYoga() {
+        Task {
+            do {
+                let data = try await KundliGenerationService.shared.generateKundli(
+                    birthDetails: savedKundli.toBirthDetails(),
+                    settings: SettingsService.shared.calculationSettings
+                )
+                await MainActor.run {
+                    viewModel.dashaPeriods = data.dashaPeriods
+                    viewModel.yogas = data.yogas
+                    viewModel.doshas = data.doshas
+                    viewModel.divisionalCharts = data.divisionalCharts
+                    viewModel.planetaryStrengths = data.planetaryStrengths
+                    viewModel.ashtakavargaData = data.ashtakavargaData
+                    viewModel.transitData = data.transitData
+                }
+            } catch {
+                // Dasha/yoga regeneration failure is non-fatal — chart still shows
+                AppLogger.kundli.error("Failed to regenerate dasha/yoga: \(error.localizedDescription)")
+            }
+        }
     }
 }
 

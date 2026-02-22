@@ -6,6 +6,8 @@ struct PlanetQuickInfoPopup: View {
     let onDismiss: () -> Void
     let onViewDetails: () -> Void
 
+    @State private var showPlanetSheet = false
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             // Header with planet symbol and name
@@ -69,6 +71,22 @@ struct PlanetQuickInfoPopup: View {
             Divider()
                 .background(Color.white.opacity(0.1))
 
+            // Learn about planet button
+            Button {
+                showPlanetSheet = true
+            } label: {
+                HStack {
+                    Image(systemName: "lightbulb.fill")
+                        .font(.system(size: 12))
+                    Text("Learn about \(planet.name)")
+                        .font(.kundliCaption)
+                }
+                .foregroundColor(.kundliPrimary)
+            }
+
+            Divider()
+                .background(Color.white.opacity(0.1))
+
             // View Details button
             Button {
                 onViewDetails()
@@ -88,6 +106,9 @@ struct PlanetQuickInfoPopup: View {
         }
         .padding(16)
         .frame(width: 260)
+        .sheet(isPresented: $showPlanetSheet) {
+            TermExplanationSheet(termId: "planet.\(planet.name.lowercased())")
+        }
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.kundliCardBg)
@@ -114,18 +135,7 @@ struct PlanetQuickInfoPopup: View {
     }
 
     private var planetColor: Color {
-        switch planet.name.lowercased() {
-        case "sun": return .orange
-        case "moon": return .white
-        case "mars": return .red
-        case "mercury": return .green
-        case "jupiter": return .yellow
-        case "venus": return .pink
-        case "saturn": return .blue
-        case "rahu": return .purple
-        case "ketu": return .brown
-        default: return .kundliPrimary
-        }
+        .forPlanet(planet.name)
     }
 }
 

@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreLocation
 
 struct KundliMatchingView: View {
     @State private var viewModel = MatchingViewModel()
@@ -6,6 +7,8 @@ struct KundliMatchingView: View {
     @State private var showPerson2CitySearch = false
     @State private var person1CitySearchText = ""
     @State private var person2CitySearchText = ""
+    @State private var person1CityResults: [City] = MockDataService.shared.cities
+    @State private var person2CityResults: [City] = MockDataService.shared.cities
 
     var body: some View {
         NavigationStack {
@@ -113,18 +116,22 @@ struct KundliMatchingView: View {
             CitySearchView(
                 searchText: $person1CitySearchText,
                 selectedCity: $viewModel.person1City,
-                cities: MockDataService.shared.searchCities(query: person1CitySearchText)
+                cities: person1CityResults
             ) {
-                // Search handled by binding
+                searchCities(query: person1CitySearchText) { results in
+                    person1CityResults = results
+                }
             }
         }
         .sheet(isPresented: $showPerson2CitySearch) {
             CitySearchView(
                 searchText: $person2CitySearchText,
                 selectedCity: $viewModel.person2City,
-                cities: MockDataService.shared.searchCities(query: person2CitySearchText)
+                cities: person2CityResults
             ) {
-                // Search handled by binding
+                searchCities(query: person2CitySearchText) { results in
+                    person2CityResults = results
+                }
             }
         }
     }
@@ -256,9 +263,19 @@ struct KundliMatchingView: View {
                 // Gun Milan details
                 CardView {
                     VStack(alignment: .leading, spacing: 16) {
-                        Text("Ashtakoot Gun Milan")
-                            .font(.kundliHeadline)
-                            .foregroundColor(.kundliTextPrimary)
+                        HStack {
+                            LearnableText(
+                                text: "Ashtakoot Gun Milan",
+                                termId: "ashtakoot",
+                                style: .headline
+                            )
+
+                            Spacer()
+                        }
+
+                        Text("8-factor compatibility analysis based on Moon signs")
+                            .font(.kundliCaption)
+                            .foregroundColor(.kundliTextSecondary)
 
                         ForEach(result.gunMilan.allScores) { score in
                             gunScoreRow(score: score)
@@ -362,9 +379,12 @@ struct KundliMatchingView: View {
     private func gunScoreRow(score: GunScore) -> some View {
         VStack(spacing: 8) {
             HStack {
-                Text(score.name)
-                    .font(.kundliSubheadline)
-                    .foregroundColor(.kundliTextPrimary)
+                LearnableText(
+                    text: score.name,
+                    termId: "ashtakoot.\(score.name.lowercased().replacingOccurrences(of: " ", with: "-"))",
+                    style: .default,
+                    showIndicator: true
+                )
 
                 Spacer()
 
@@ -395,6 +415,42 @@ struct KundliMatchingView: View {
         case .good: return .kundliPrimary
         case .average: return .kundliWarning
         case .poor: return .kundliError
+        }
+    }
+
+    private func searchCities(query: String, completion: @escaping ([City]) -> Void) {
+        let trimmed = query.trimmingCharacters(in: .whitespaces)
+        guard trimmed.count >= 2 else {
+            completion(MockDataService.shared.cities)
+            return
+        }
+        Task {
+            let geocoder = CLGeocoder()
+            do {
+                let placemarks = try await geocoder.geocodeAddressString(trimmed)
+                let cities = placemarks.compactMap { placemark -> City? in
+                    guard let name = placemark.locality,
+                          let location = placemark.location else { return nil }
+                    return City(
+                        name: name,
+                        state: placemark.administrativeArea ?? "",
+                        country: placemark.country ?? "",
+                        latitude: location.coordinate.latitude,
+                        longitude: location.coordinate.longitude,
+                        timezone: placemark.timeZone?.identifier ?? "UTC"
+                    )
+                }
+                await MainActor.run {
+                    completion(cities.isEmpty ? MockDataService.shared.cities : cities)
+                }
+            } catch {
+                let filtered = MockDataService.shared.cities.filter {
+                    $0.name.localizedCaseInsensitiveContains(trimmed)
+                }
+                await MainActor.run {
+                    completion(filtered.isEmpty ? MockDataService.shared.cities : filtered)
+                }
+            }
         }
     }
 }

@@ -2,11 +2,9 @@ import SwiftUI
 
 struct PanchangGrid: View {
     let panchang: Panchang
+    var latitude: Double = 28.6139
+    var longitude: Double = 77.2090
     @State private var currentHora: HoraPeriod?
-
-    // Default location (Delhi)
-    private let latitude: Double = 28.6139
-    private let longitude: Double = 77.2090
 
     var body: some View {
         VStack(spacing: 12) {
@@ -31,19 +29,22 @@ struct PanchangGrid: View {
                 PanchangItem(
                     title: "Tithi",
                     value: panchang.tithi.fullName,
-                    icon: "moon.stars.fill"
+                    icon: "moon.stars.fill",
+                    termId: "tithi"
                 )
 
                 PanchangItem(
                     title: "Nakshatra",
                     value: panchang.nakshatra,
-                    icon: "star.fill"
+                    icon: "star.fill",
+                    termId: "nakshatra"
                 )
 
                 PanchangItem(
                     title: "Yoga",
                     value: panchang.yoga,
-                    icon: "sparkles"
+                    icon: "sparkles",
+                    termId: "yoga"
                 )
 
                 PanchangItem(
@@ -52,6 +53,12 @@ struct PanchangGrid: View {
                     icon: "circle.hexagonpath.fill"
                 )
             }
+
+            // Learn more row
+            LearnMoreRow(
+                title: "What is Panchang?",
+                termId: "panchang"
+            )
 
             // Current Hora row
             if let hora = currentHora {
@@ -90,6 +97,7 @@ struct PanchangItem: View {
     let title: String
     let value: String
     let icon: String
+    var termId: String? = nil
 
     var body: some View {
         CardView(padding: 14) {
@@ -104,10 +112,20 @@ struct PanchangItem: View {
                         .font(.kundliCaption)
                         .foregroundColor(.kundliTextSecondary)
 
-                    Text(value)
-                        .font(.kundliSubheadline)
-                        .foregroundColor(.kundliTextPrimary)
+                    if let termId = termId {
+                        LearnableText(
+                            text: value,
+                            termId: termId,
+                            style: .default,
+                            showIndicator: true
+                        )
                         .lineLimit(1)
+                    } else {
+                        Text(value)
+                            .font(.kundliSubheadline)
+                            .foregroundColor(.kundliTextPrimary)
+                            .lineLimit(1)
+                    }
                 }
 
                 Spacer(minLength: 0)

@@ -17,6 +17,7 @@ final class SavedKundli {
 
     // Stored chart data (JSON encoded)
     var planetsData: Data?
+    var ascendantData: Data?
     var ascendantSign: String
     var ascendantDegree: Double
     var ascendantNakshatra: String
@@ -51,6 +52,16 @@ final class SavedKundli {
         self.ascendantNakshatra = ascendantNakshatra
         self.createdAt = createdAt
         self.updatedAt = updatedAt
+    }
+
+    func decodePlanets() -> [Planet]? {
+        guard let data = planetsData else { return nil }
+        return try? JSONDecoder().decode([Planet].self, from: data)
+    }
+
+    func decodeAscendant() -> Ascendant? {
+        guard let data = ascendantData else { return nil }
+        return try? JSONDecoder().decode(Ascendant.self, from: data)
     }
 
     var formattedDate: String {

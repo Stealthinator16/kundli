@@ -86,7 +86,6 @@
 		AA000007001 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000007000 /* Planet.swift */; };
 		AA000008001 /* Panchang.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000008000 /* Panchang.swift */; };
 		AA000009001 /* Kundli.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000009000 /* Kundli.swift */; };
-		AA000010001 /* DashaPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000010000 /* DashaPeriod.swift */; };
 		AA000011001 /* KundliMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000011000 /* KundliMatch.swift */; };
 		AA000012001 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000012000 /* MockDataService.swift */; };
 		AA000013001 /* GoldButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000013000 /* GoldButton.swift */; };
@@ -141,6 +140,29 @@
 		EF74A65E759C7373018293B6 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A9FCB5E0FF85C7DB08CB3 /* ChatView.swift */; };
 		F36C5E5A4382DC36F8211B53 /* ChartInteractionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1997D1EDB5175D46FA686 /* ChartInteractionState.swift */; };
 		F72A02CE14285BE36CE5F203 /* AIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1287FD51E63FE8E2EE0D8E5 /* AIKeyManager.swift */; };
+		2C6EC20EAADB431D9CF7E8CD /* DailyHoroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8151DC5CA84750B9E96D43 /* DailyHoroscope.swift */; };
+		0F155574D1104C4481940ECC /* HoroscopeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF0EA88A4934BC289161E61 /* HoroscopeService.swift */; };
+		45BDF436E5B3AE546C98C7D2 /* LearningArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAF07E03F617072C3B1BC8F /* LearningArticle.swift */; };
+		DCE9531547554B724BD80C84 /* AstrologyTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659623374A44703346B7021 /* AstrologyTerm.swift */; };
+		F5C2C4836DAE8EFF87FC4BC0 /* MarriageMuhurtaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7AC68FB0FB7966A38735C /* MarriageMuhurtaView.swift */; };
+		89B1E71F2F03FEF61704BFBE /* iCloudSyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761784A8524D441E1747D061 /* iCloudSyncView.swift */; };
+		52E45B35F5E7787BCE99F64B /* GrahaPraveshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430AF5998E9A8966D7E55F4 /* GrahaPraveshView.swift */; };
+		14A0B5334B62EA329A9C4332 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A8584EB34ABF1781895B1 /* ArticleView.swift */; };
+		5A09778D2707B93009CB21F9 /* InlineExplanationBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006F7F429405CC7613FEE02 /* InlineExplanationBadge.swift */; };
+		AFE5A419444AE404401C11B6 /* LearnableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9DB7F45523B3F88F5C061 /* LearnableText.swift */; };
+		12FC403A7F654B316BD7C624 /* TermExplanationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C5C8C43D7D7ADEB67AA40 /* TermExplanationSheet.swift */; };
+		7AD6F47A5C720E19A3BCB0CC /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A02B6BCA98A7B61D9A2DEF /* GlossaryView.swift */; };
+		FA89D9694C990DEBC5D45947 /* LearningCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C05825519C15C5CC2D9D6 /* LearningCenterView.swift */; };
+		F542FD843B49FD7DC13D73AB /* FactorChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17311DABFFDCFC0EAF6A2C9D /* FactorChipView.swift */; };
+		5CB1FB5AE99563E45A99A610 /* CompositeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281151FA852BD8584981E9B1 /* CompositeChartView.swift */; };
+		2383CFC9030E8A7579D44A2A /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CE43B730E81DF168AC0699 /* SyncService.swift */; };
+		F781450943C7E6CD5E0DFEB9 /* EducationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65954FCC52891436809E3A12 /* EducationService.swift */; };
+		86CD53685873842162B56E6A /* GrahaPraveshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83D596578D1BB7FDB81272E /* GrahaPraveshService.swift */; };
+		808315C970B17E295A70D42C /* CompositeChartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF358E939DB7810AC116611B /* CompositeChartService.swift */; };
+		C24784CC8A783574A9026812 /* MarriageMuhurtaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB3EF559533EE927C3405C7 /* MarriageMuhurtaService.swift */; };
+		AA100001001 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA100001000 /* AppLogger.swift */; };
+		AA100002001 /* KundliSchemaVersioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA100002000 /* KundliSchemaVersioning.swift */; };
+		AA100003001 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AA100003000 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -223,7 +245,6 @@
 		AA000007000 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		AA000008000 /* Panchang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panchang.swift; sourceTree = "<group>"; };
 		AA000009000 /* Kundli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kundli.swift; sourceTree = "<group>"; };
-		AA000010000 /* DashaPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashaPeriod.swift; sourceTree = "<group>"; };
 		AA000011000 /* KundliMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KundliMatch.swift; sourceTree = "<group>"; };
 		AA000012000 /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
 		AA000013000 /* GoldButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldButton.swift; sourceTree = "<group>"; };
@@ -280,6 +301,29 @@
 		F31FC37D306AF8230F380242 /* AIError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIError.swift; sourceTree = "<group>"; };
 		F88A9FCB5E0FF85C7DB08CB3 /* ChatView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		FFE8C8F36A10326BDDDBAEC9 /* Festival.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
+		AF8151DC5CA84750B9E96D43 /* DailyHoroscope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DailyHoroscope.swift; sourceTree = "<group>"; };
+		2DF0EA88A4934BC289161E61 /* HoroscopeService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HoroscopeService.swift; sourceTree = "<group>"; };
+		FFAF07E03F617072C3B1BC8F /* LearningArticle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LearningArticle.swift; sourceTree = "<group>"; };
+		7659623374A44703346B7021 /* AstrologyTerm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AstrologyTerm.swift; sourceTree = "<group>"; };
+		24E7AC68FB0FB7966A38735C /* MarriageMuhurtaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarriageMuhurtaView.swift; sourceTree = "<group>"; };
+		761784A8524D441E1747D061 /* iCloudSyncView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = iCloudSyncView.swift; sourceTree = "<group>"; };
+		0430AF5998E9A8966D7E55F4 /* GrahaPraveshView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GrahaPraveshView.swift; sourceTree = "<group>"; };
+		3C9A8584EB34ABF1781895B1 /* ArticleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		5006F7F429405CC7613FEE02 /* InlineExplanationBadge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InlineExplanationBadge.swift; sourceTree = "<group>"; };
+		94D9DB7F45523B3F88F5C061 /* LearnableText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LearnableText.swift; sourceTree = "<group>"; };
+		587C5C8C43D7D7ADEB67AA40 /* TermExplanationSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TermExplanationSheet.swift; sourceTree = "<group>"; };
+		F8A02B6BCA98A7B61D9A2DEF /* GlossaryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GlossaryView.swift; sourceTree = "<group>"; };
+		003C05825519C15C5CC2D9D6 /* LearningCenterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LearningCenterView.swift; sourceTree = "<group>"; };
+		17311DABFFDCFC0EAF6A2C9D /* FactorChipView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FactorChipView.swift; sourceTree = "<group>"; };
+		281151FA852BD8584981E9B1 /* CompositeChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompositeChartView.swift; sourceTree = "<group>"; };
+		A4CE43B730E81DF168AC0699 /* SyncService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncService.swift; sourceTree = "<group>"; };
+		65954FCC52891436809E3A12 /* EducationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EducationService.swift; sourceTree = "<group>"; };
+		C83D596578D1BB7FDB81272E /* GrahaPraveshService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GrahaPraveshService.swift; sourceTree = "<group>"; };
+		FF358E939DB7810AC116611B /* CompositeChartService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompositeChartService.swift; sourceTree = "<group>"; };
+		2DB3EF559533EE927C3405C7 /* MarriageMuhurtaService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarriageMuhurtaService.swift; sourceTree = "<group>"; };
+		AA100001000 /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
+		AA100002000 /* KundliSchemaVersioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KundliSchemaVersioning.swift; sourceTree = "<group>"; };
+		AA100003000 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -320,6 +364,7 @@
 			children = (
 				06F6A8D2635ED7B9A823A2E0 /* ChartComparisonView.swift */,
 				E52A211D7623E5913FA51803 /* SynastryAspectList.swift */,
+				281151FA852BD8584981E9B1 /* CompositeChartView.swift */,
 			);
 			name = Comparison;
 			path = Comparison;
@@ -390,6 +435,9 @@
 				805910FBE1554BF8A3830218 /* HoraService.swift */,
 				4D0E144C7276B7A8E8256203 /* FestivalService.swift */,
 				C67516744E5AA542F9773DCA /* SynastryService.swift */,
+				C83D596578D1BB7FDB81272E /* GrahaPraveshService.swift */,
+				FF358E939DB7810AC116611B /* CompositeChartService.swift */,
+				2DB3EF559533EE927C3405C7 /* MarriageMuhurtaService.swift */,
 			);
 			path = Calculations;
 			sourceTree = "<group>";
@@ -437,6 +485,7 @@
 				25855CF9F9425953FAFFAF40 /* AIReportService.swift */,
 				BB8A489F6B871154B9250562 /* AIResponseCache.swift */,
 				F31BFBDB4C193C71F16FC01A /* AIChatService.swift */,
+				2DF0EA88A4934BC289161E61 /* HoroscopeService.swift */,
 			);
 			path = AI;
 			sourceTree = "<group>";
@@ -488,6 +537,7 @@
 				AA000013000 /* GoldButton.swift */,
 				AA000014000 /* CardView.swift */,
 				AA000041000 /* AnimatedGradient.swift */,
+				17311DABFFDCFC0EAF6A2C9D /* FactorChipView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -517,12 +567,14 @@
 			children = (
 				AA000001000 /* KundliApp.swift */,
 				AA000002000 /* ContentView.swift */,
+				AA100003000 /* PrivacyInfo.xcprivacy */,
 				AA000037000 /* LaunchScreen.storyboard */,
 				AAMODELS /* Models */,
 				AAVIEWS /* Views */,
 				AAVIEWMODELS /* ViewModels */,
 				AASERVICES /* Services */,
 				AATHEME /* Theme */,
+				AAUTILITIES /* Utilities */,
 				AARESOURCES /* Resources */,
 				AAPREVIEW /* Preview Content */,
 			);
@@ -533,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				AA000031000 /* KundliMatchingView.swift */,
+				24E7AC68FB0FB7966A38735C /* MarriageMuhurtaView.swift */,
 			);
 			path = Matching;
 			sourceTree = "<group>";
@@ -555,7 +608,6 @@
 				AA000007000 /* Planet.swift */,
 				AA000008000 /* Panchang.swift */,
 				AA000009000 /* Kundli.swift */,
-				AA000010000 /* DashaPeriod.swift */,
 				AA000011000 /* KundliMatch.swift */,
 				AA000035000 /* SavedKundli.swift */,
 				AA000042000 /* NotificationSettings.swift */,
@@ -565,6 +617,9 @@
 				56CEE4DB9C2A9CFB44A06FBA /* CustomReminder.swift */,
 				FFE8C8F36A10326BDDDBAEC9 /* Festival.swift */,
 				6D869DCCA8A8313C76568A6D /* ChartComparison.swift */,
+				AF8151DC5CA84750B9E96D43 /* DailyHoroscope.swift */,
+				AA100002000 /* KundliSchemaVersioning.swift */,
+				B77E8D785B61AC09C439D6F6 /* Education */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -649,6 +704,8 @@
 				AA000044000 /* NotificationService.swift */,
 				55268EE9AE5697BAC32F4966 /* AI */,
 				28BAC4F9975163A13AF13EDB /* NavigationCoordinator.swift */,
+				A4CE43B730E81DF168AC0699 /* SyncService.swift */,
+				C4EBF57DBC149484CDECEA76 /* Education */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -658,6 +715,7 @@
 			children = (
 				AA000046000 /* SettingsView.swift */,
 				AA000047000 /* NotificationSettingsView.swift */,
+				761784A8524D441E1747D061 /* iCloudSyncView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -709,6 +767,7 @@
 				40801C66DF746DD79E06DD0A /* Reminders */,
 				EB640C59C60CC9DC91251DB9 /* Calendar */,
 				2A8BD6AB4B0364B4670AF702 /* Comparison */,
+				C5A9D2A6E8DB7A68372B2332 /* Education */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -730,9 +789,56 @@
 			children = (
 				BA9F01B5577ABDBDC07D313A /* FestivalCalendarView.swift */,
 				B93FFDBCC412D903DF402024 /* FestivalDetailView.swift */,
+				0430AF5998E9A8966D7E55F4 /* GrahaPraveshView.swift */,
 			);
 			name = Calendar;
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		B77E8D785B61AC09C439D6F6 /* Education */ = {
+			isa = PBXGroup;
+			children = (
+				FFAF07E03F617072C3B1BC8F /* LearningArticle.swift */,
+				7659623374A44703346B7021 /* AstrologyTerm.swift */,
+			);
+			path = Education;
+			sourceTree = "<group>";
+		};
+		C5A9D2A6E8DB7A68372B2332 /* Education */ = {
+			isa = PBXGroup;
+			children = (
+				3C9A8584EB34ABF1781895B1 /* ArticleView.swift */,
+				F8A02B6BCA98A7B61D9A2DEF /* GlossaryView.swift */,
+				003C05825519C15C5CC2D9D6 /* LearningCenterView.swift */,
+				EAD52602A8A50A95C7B90BC8 /* Components */,
+			);
+			path = Education;
+			sourceTree = "<group>";
+		};
+		EAD52602A8A50A95C7B90BC8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5006F7F429405CC7613FEE02 /* InlineExplanationBadge.swift */,
+				94D9DB7F45523B3F88F5C061 /* LearnableText.swift */,
+				587C5C8C43D7D7ADEB67AA40 /* TermExplanationSheet.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C4EBF57DBC149484CDECEA76 /* Education */ = {
+			isa = PBXGroup;
+			children = (
+				65954FCC52891436809E3A12 /* EducationService.swift */,
+			);
+			path = Education;
+			sourceTree = "<group>";
+		};
+		AAUTILITIES /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AA100001000 /* AppLogger.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -829,6 +935,7 @@
 			files = (
 				AA000034001 /* Assets.xcassets in Resources */,
 				AA000037001 /* LaunchScreen.storyboard in Resources */,
+				AA100003001 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,7 +966,6 @@
 				4077983F2F2B98FE0033CC84 /* Remedy.swift in Sources */,
 				407798402F2B98FE0033CC84 /* PlanetaryStrength.swift in Sources */,
 				407798412F2B98FE0033CC84 /* AshtakavargaData.swift in Sources */,
-				AA000010001 /* DashaPeriod.swift in Sources */,
 				AA000011001 /* KundliMatch.swift in Sources */,
 				AA000012001 /* MockDataService.swift in Sources */,
 				AA000013001 /* GoldButton.swift in Sources */,
@@ -977,6 +1083,28 @@
 				36F5556E97A8074CC2785BF0 /* ChartComparisonView.swift in Sources */,
 				B74442BDF6DEDD2A9AC4CD04 /* SynastryAspectList.swift in Sources */,
 				990C4A2399448313D89F7D91 /* KundliApp.swift in Sources */,
+				2C6EC20EAADB431D9CF7E8CD /* DailyHoroscope.swift in Sources */,
+				0F155574D1104C4481940ECC /* HoroscopeService.swift in Sources */,
+				45BDF436E5B3AE546C98C7D2 /* LearningArticle.swift in Sources */,
+				DCE9531547554B724BD80C84 /* AstrologyTerm.swift in Sources */,
+				F5C2C4836DAE8EFF87FC4BC0 /* MarriageMuhurtaView.swift in Sources */,
+				89B1E71F2F03FEF61704BFBE /* iCloudSyncView.swift in Sources */,
+				52E45B35F5E7787BCE99F64B /* GrahaPraveshView.swift in Sources */,
+				14A0B5334B62EA329A9C4332 /* ArticleView.swift in Sources */,
+				5A09778D2707B93009CB21F9 /* InlineExplanationBadge.swift in Sources */,
+				AFE5A419444AE404401C11B6 /* LearnableText.swift in Sources */,
+				12FC403A7F654B316BD7C624 /* TermExplanationSheet.swift in Sources */,
+				7AD6F47A5C720E19A3BCB0CC /* GlossaryView.swift in Sources */,
+				FA89D9694C990DEBC5D45947 /* LearningCenterView.swift in Sources */,
+				F542FD843B49FD7DC13D73AB /* FactorChipView.swift in Sources */,
+				5CB1FB5AE99563E45A99A610 /* CompositeChartView.swift in Sources */,
+				2383CFC9030E8A7579D44A2A /* SyncService.swift in Sources */,
+				F781450943C7E6CD5E0DFEB9 /* EducationService.swift in Sources */,
+				86CD53685873842162B56E6A /* GrahaPraveshService.swift in Sources */,
+				808315C970B17E295A70D42C /* CompositeChartService.swift in Sources */,
+				C24784CC8A783574A9026812 /* MarriageMuhurtaService.swift in Sources */,
+				AA100001001 /* AppLogger.swift in Sources */,
+				AA100002001 /* KundliSchemaVersioning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

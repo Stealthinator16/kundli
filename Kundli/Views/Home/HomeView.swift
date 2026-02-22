@@ -8,6 +8,7 @@ struct HomeView: View {
     @State private var showHoroscopeDetail = false
     @State private var showSettings = false
     @State private var animateContent = false
+    @State private var hasTriggeredFirstRun = false
 
     @Query(sort: \SavedKundli.updatedAt, order: .reverse) private var savedKundlis: [SavedKundli]
 
@@ -107,6 +108,11 @@ struct HomeView: View {
             .onAppear {
                 withAnimation(.easeOut(duration: 0.6).delay(0.1)) {
                     animateContent = true
+                }
+                // After onboarding, go straight to kundli creation
+                if savedKundlis.isEmpty && !hasTriggeredFirstRun {
+                    hasTriggeredFirstRun = true
+                    showBirthDetails = true
                 }
             }
         }

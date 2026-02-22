@@ -97,6 +97,22 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
+
+    /// Color associated with a Vedic astrology planet
+    static func forPlanet(_ name: String) -> Color {
+        switch name.lowercased() {
+        case "sun": return .orange
+        case "moon": return .white
+        case "mars": return .red
+        case "mercury": return .green
+        case "jupiter": return .yellow
+        case "venus": return .pink
+        case "saturn": return .blue
+        case "rahu": return .purple
+        case "ketu": return .brown
+        default: return .kundliPrimary
+        }
+    }
 }
 
 // MARK: - Gradients

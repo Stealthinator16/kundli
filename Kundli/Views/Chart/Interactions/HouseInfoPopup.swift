@@ -138,6 +138,9 @@ struct HouseInfoPopup: View {
     let kundli: Kundli
     let onDismiss: () -> Void
 
+    @State private var showCategorySheet = false
+    @State private var showHouseSheet = false
+
     private var significance: HousePopupData {
         HousePopupData.forHouse(house)
     }
@@ -249,6 +252,22 @@ struct HouseInfoPopup: View {
                     }
                 }
             }
+
+            Divider()
+                .background(Color.white.opacity(0.1))
+
+            // Learn more button
+            Button {
+                showHouseSheet = true
+            } label: {
+                HStack {
+                    Image(systemName: "lightbulb.fill")
+                        .font(.system(size: 12))
+                    Text("Learn about House \(house)")
+                        .font(.kundliCaption)
+                }
+                .foregroundColor(.kundliPrimary)
+            }
         }
         .padding(16)
         .frame(width: 280)
@@ -261,18 +280,29 @@ struct HouseInfoPopup: View {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.kundliPrimary.opacity(0.3), lineWidth: 1)
         )
+        .sheet(isPresented: $showCategorySheet) {
+            TermExplanationSheet(termId: "house-category.\(significance.category.rawValue.lowercased())")
+        }
+        .sheet(isPresented: $showHouseSheet) {
+            TermExplanationSheet(termId: "house.\(house)")
+        }
     }
 
     private var categoryBadge: some View {
-        Text(significance.category.rawValue)
-            .font(.kundliCaption2)
-            .foregroundColor(significance.category == .dusthana ? .kundliBackground : .white)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 3)
-            .background(
-                Capsule()
-                    .fill(significance.category.color)
-            )
+        Button {
+            showCategorySheet = true
+        } label: {
+            Text(significance.category.rawValue)
+                .font(.kundliCaption2)
+                .foregroundColor(significance.category == .dusthana ? .kundliBackground : .white)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 3)
+                .background(
+                    Capsule()
+                        .fill(significance.category.color)
+                )
+        }
+        .buttonStyle(.plain)
     }
 
     private func planetChip(_ planet: Planet) -> some View {
@@ -296,18 +326,7 @@ struct HouseInfoPopup: View {
     }
 
     private func planetColor(for planet: Planet) -> Color {
-        switch planet.name.lowercased() {
-        case "sun": return .orange
-        case "moon": return .white
-        case "mars": return .red
-        case "mercury": return .green
-        case "jupiter": return .yellow
-        case "venus": return .pink
-        case "saturn": return .blue
-        case "rahu": return .purple
-        case "ketu": return .brown
-        default: return .kundliPrimary
-        }
+        .forPlanet(planet.name)
     }
 }
 

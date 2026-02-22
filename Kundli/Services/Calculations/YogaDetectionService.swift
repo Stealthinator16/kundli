@@ -437,7 +437,6 @@ final class YogaDetectionService {
 
         // Variation 3: Jupiter aspects 2nd or 11th house
         if let jupiter = planets.first(where: { $0.planet == .jupiter }) {
-            let jupiterSign = jupiter.signIndex
             let house2Sign = house2.sign
             let house11Sign = house11.sign
 

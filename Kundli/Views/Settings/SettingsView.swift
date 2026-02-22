@@ -13,6 +13,9 @@ struct SettingsView: View {
                     // AI Settings Section
                     aiSettingsSection
 
+                    // Education Section
+                    educationSection
+
                     // iCloud Sync Section
                     iCloudSyncSection
 
@@ -332,6 +335,72 @@ struct SettingsView: View {
                         }
                         .buttonStyle(.plain)
                     }
+                }
+            }
+        }
+    }
+
+    // MARK: - Education Section
+
+    private var educationSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionHeader("Education", icon: "graduationcap")
+
+            CardView {
+                VStack(spacing: 0) {
+                    NavigationLink {
+                        LearningCenterView()
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Learning Center")
+                                    .font(.kundliSubheadline)
+                                    .foregroundColor(.kundliTextPrimary)
+
+                                Text("Articles and guides about Vedic astrology")
+                                    .font(.kundliCaption)
+                                    .foregroundColor(.kundliTextSecondary)
+                            }
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 12))
+                                .foregroundColor(.kundliTextSecondary)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 14)
+                    }
+                    .buttonStyle(.plain)
+
+                    Divider()
+                        .background(Color.white.opacity(0.1))
+                        .padding(.leading, 16)
+
+                    NavigationLink {
+                        GlossaryView()
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Glossary")
+                                    .font(.kundliSubheadline)
+                                    .foregroundColor(.kundliTextPrimary)
+
+                                Text("A-Z of astrology terms")
+                                    .font(.kundliCaption)
+                                    .foregroundColor(.kundliTextSecondary)
+                            }
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 12))
+                                .foregroundColor(.kundliTextSecondary)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 14)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
         }

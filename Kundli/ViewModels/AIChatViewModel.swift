@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import os
 
 @Observable
 class AIChatViewModel {
@@ -66,7 +67,7 @@ class AIChatViewModel {
         do {
             conversations = try context.fetch(descriptor)
         } catch {
-            print("Failed to fetch conversations: \(error)")
+            AppLogger.ai.error("Failed to fetch conversations: \(error.localizedDescription)")
             conversations = []
         }
     }
@@ -109,11 +110,13 @@ class AIChatViewModel {
                 )
             }
 
+            let messageCount = conversation.messages.count
+
             await MainActor.run {
                 isSending = false
                 partialResponse = ""
                 // Clear suggested questions after first message
-                if conversation.messages.count > 1 {
+                if messageCount > 1 {
                     suggestedQuestions = []
                 }
             }

@@ -10,76 +10,93 @@ struct KundliApp: App {
     @State private var navigationCoordinator = NavigationCoordinator.shared
     @State private var appTheme: AppTheme = SettingsService.shared.appTheme
 
-    var sharedModelContainer: ModelContainer = {
+    let sharedModelContainer: ModelContainer?
+    private let containerError: String?
+
+    init() {
         let schema = Schema([
             SavedKundli.self,
             ChatConversation.self,
             CustomReminder.self,
         ])
-
-        // Check if iCloud sync is enabled
-        let syncEnabled = UserDefaults.standard.bool(forKey: "com.kundli.sync.enabled")
-
-        let modelConfiguration: ModelConfiguration
-
-        if syncEnabled {
-            // CloudKit-enabled configuration for iCloud sync
-            modelConfiguration = ModelConfiguration(
-                schema: schema,
-                isStoredInMemoryOnly: false,
-                cloudKitDatabase: .automatic
-            )
-        } else {
-            // Local-only configuration
-            modelConfiguration = ModelConfiguration(
-                schema: schema,
-                isStoredInMemoryOnly: false
-            )
-        }
-
+        let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            sharedModelContainer = try ModelContainer(
+                for: schema,
+                migrationPlan: KundliMigrationPlan.self,
+                configurations: [config]
+            )
+            containerError = nil
         } catch {
-            // If CloudKit fails, fall back to local storage
-            print("CloudKit container creation failed, falling back to local: \(error)")
-            let localConfig = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-            do {
-                return try ModelContainer(for: schema, configurations: [localConfig])
-            } catch {
-                fatalError("Could not create ModelContainer: \(error)")
-            }
+            sharedModelContainer = nil
+            containerError = error.localizedDescription
         }
-    }()
 
-    init() {
         // Initialize ephemeris service at app startup
         EphemerisService.shared.initialize()
 
-        // Initialize sync service to check cloud status
-        _ = SyncService.shared
+        // Temporarily disabled - may cause crash on simulator
+        // _ = SyncService.shared
+
+        // Initialize education service and load data
+        EducationService.shared.loadData()
     }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(navigationCoordinator)
-                .preferredColorScheme(appTheme.colorScheme)
-                .fullScreenCover(isPresented: $showOnboarding) {
-                    OnboardingView(isPresented: $showOnboarding)
-                        .preferredColorScheme(appTheme.colorScheme)
-                }
-                .onReceive(NotificationCenter.default.publisher(for: .handleDeepLink)) { notification in
-                    if let deepLink = notification.object as? DeepLink {
-                        navigationCoordinator.handle(deepLink)
+            if let container = sharedModelContainer {
+                ContentView()
+                    .modelContainer(container)
+                    .environment(navigationCoordinator)
+                    .preferredColorScheme(appTheme.colorScheme)
+                    .fullScreenCover(isPresented: $showOnboarding) {
+                        OnboardingView(isPresented: $showOnboarding)
+                            .preferredColorScheme(appTheme.colorScheme)
                     }
-                }
-                .onReceive(NotificationCenter.default.publisher(for: SettingsService.appThemeChanged)) { notification in
-                    if let newTheme = notification.object as? AppTheme {
-                        appTheme = newTheme
+                    .onReceive(NotificationCenter.default.publisher(for: .handleDeepLink)) { notification in
+                        if let deepLink = notification.object as? DeepLink {
+                            navigationCoordinator.handle(deepLink)
+                        }
                     }
-                }
+                    .onReceive(NotificationCenter.default.publisher(for: SettingsService.appThemeChanged)) { notification in
+                        if let newTheme = notification.object as? AppTheme {
+                            appTheme = newTheme
+                        }
+                    }
+            } else {
+                DataErrorView(errorMessage: containerError ?? "Unknown error")
+            }
         }
-        .modelContainer(sharedModelContainer)
+    }
+}
+
+// MARK: - Data Error View
+
+private struct DataErrorView: View {
+    let errorMessage: String
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.system(size: 56))
+                .foregroundStyle(.red)
+
+            Text("Unable to Load Data")
+                .font(.title2.bold())
+
+            Text(errorMessage)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+
+            Text("Try restarting the app. If the problem persists, reinstall the app.")
+                .font(.footnote)
+                .foregroundStyle(.tertiary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+        }
+        .padding()
     }
 }
 

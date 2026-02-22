@@ -458,26 +458,4 @@ extension TransitAspect {
         case .quincunx: return "⚻"
         }
     }
-
-    var degrees: Double {
-        switch self {
-        case .conjunction: return 0
-        case .opposition: return 180
-        case .trine: return 120
-        case .square: return 90
-        case .sextile: return 60
-        case .quincunx: return 150
-        }
-    }
-
-    var nature: AspectNature {
-        switch self {
-        case .conjunction: return .neutral
-        case .opposition: return .challenging
-        case .trine: return .harmonious
-        case .square: return .challenging
-        case .sextile: return .harmonious
-        case .quincunx: return .adjusting
-        }
-    }
 }

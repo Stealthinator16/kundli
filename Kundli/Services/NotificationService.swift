@@ -1,5 +1,6 @@
 import Foundation
 import UserNotifications
+import os
 
 /// Service for managing local notifications
 final class NotificationService {
@@ -15,7 +16,7 @@ final class NotificationService {
     private let defaultLocation = (
         latitude: 28.6139,
         longitude: 77.2090,
-        timezone: TimeZone(identifier: "Asia/Kolkata")!
+        timezone: TimeZone(identifier: "Asia/Kolkata") ?? .current
     )
 
     private init() {
@@ -43,7 +44,7 @@ final class NotificationService {
             }
             return granted
         } catch {
-            print("Notification authorization error: \(error.localizedDescription)")
+            AppLogger.notifications.error("Notification authorization error: \(error.localizedDescription)")
             return false
         }
     }
@@ -130,7 +131,7 @@ final class NotificationService {
         do {
             try await notificationCenter.add(request)
         } catch {
-            print("Failed to schedule Panchang notification: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to schedule Panchang notification: \(error.localizedDescription)")
         }
     }
 
@@ -186,7 +187,7 @@ final class NotificationService {
             do {
                 try await notificationCenter.add(request)
             } catch {
-                print("Failed to schedule Rahu Kaal notification: \(error.localizedDescription)")
+                AppLogger.notifications.error("Failed to schedule Rahu Kaal notification: \(error.localizedDescription)")
             }
         }
     }
@@ -253,7 +254,7 @@ final class NotificationService {
         do {
             try await notificationCenter.add(request)
         } catch {
-            print("Failed to schedule Abhijit notification: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to schedule Abhijit notification: \(error.localizedDescription)")
         }
     }
 
@@ -279,7 +280,7 @@ final class NotificationService {
         do {
             try await notificationCenter.add(request)
         } catch {
-            print("Failed to schedule Brahma Muhurta notification: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to schedule Brahma Muhurta notification: \(error.localizedDescription)")
         }
     }
 
@@ -331,7 +332,7 @@ final class NotificationService {
         do {
             try await notificationCenter.add(request)
         } catch {
-            print("Failed to schedule Dasha notification: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to schedule Dasha notification: \(error.localizedDescription)")
         }
     }
 
@@ -371,7 +372,7 @@ final class NotificationService {
             )
 
         } catch {
-            print("Failed to generate kundli for transit notifications: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to generate kundli for transit notifications: \(error.localizedDescription)")
         }
     }
 
@@ -507,7 +508,7 @@ final class NotificationService {
         do {
             try await notificationCenter.add(request)
         } catch {
-            print("Failed to schedule transit notification: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to schedule transit notification: \(error.localizedDescription)")
         }
     }
 
@@ -567,7 +568,7 @@ final class NotificationService {
         do {
             try await notificationCenter.add(request)
         } catch {
-            print("Failed to schedule custom reminder: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to schedule custom reminder: \(error.localizedDescription)")
         }
     }
 
@@ -646,7 +647,7 @@ final class NotificationService {
         do {
             try await notificationCenter.add(request)
         } catch {
-            print("Failed to schedule birthday reminder: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to schedule birthday reminder: \(error.localizedDescription)")
         }
     }
 

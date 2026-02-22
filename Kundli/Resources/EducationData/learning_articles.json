@@ -1,0 +1,303 @@
+[
+  {
+    "id": "what-is-vedic-astrology",
+    "title": "What is Vedic Astrology?",
+    "subtitle": "An introduction to Jyotish - the ancient science of light",
+    "category": "Fundamentals",
+    "readingTime": 5,
+    "difficulty": "Beginner",
+    "introduction": "Vedic astrology, known as Jyotish Shastra, is one of the world's oldest astrological systems, originating in ancient India over 5,000 years ago. Unlike modern Western astrology, Jyotish uses the sidereal zodiac aligned with actual star positions, incorporates unique elements like 27 lunar mansions (Nakshatras), and features sophisticated timing systems that can predict when life events may unfold.",
+    "sections": [
+      {
+        "id": "origins",
+        "heading": "Ancient Origins",
+        "content": "Jyotish means 'science of light' in Sanskrit, referring to the celestial lights that guide human destiny. It developed as one of the six Vedangas (limbs of the Vedas), the ancient Hindu scriptures.\n\nThe sage Parashara is credited with systematizing Vedic astrology in his work 'Brihat Parashara Hora Shastra,' which remains the primary reference text today. Other important texts include 'Brihat Jataka' by Varahamihira and 'Phaladeepika' by Mantreswara.",
+        "illustration": "sparkles",
+        "example": null
+      },
+      {
+        "id": "sidereal-vs-tropical",
+        "heading": "Sidereal vs. Tropical Zodiac",
+        "content": "The key difference between Vedic and Western astrology lies in which zodiac system they use:\n\n**Tropical Zodiac (Western):** Based on the seasons. 0° Aries begins at the spring equinox, regardless of where the actual stars are.\n\n**Sidereal Zodiac (Vedic):** Aligned with the actual position of the constellations in the sky.\n\nDue to Earth's axial wobble (precession), these two zodiacs have drifted apart by about 24 degrees over millennia. This means your Vedic sign is often one sign earlier than your Western sign.",
+        "illustration": "arrow.triangle.2.circlepath",
+        "example": {
+          "title": "Sign Difference Example",
+          "description": "Someone born on April 1st would be Aries in Western astrology (tropical), but likely Pisces in Vedic astrology (sidereal). The difference is due to the ~24° Ayanamsa correction.",
+          "visual": null
+        }
+      },
+      {
+        "id": "unique-elements",
+        "heading": "Unique Elements of Jyotish",
+        "content": "Vedic astrology includes several features not found in Western astrology:\n\n**Nakshatras:** 27 lunar mansions that divide the zodiac into finer segments of 13°20' each. Your birth nakshatra (based on Moon position) is considered even more important than your Sun sign.\n\n**Dasha System:** Sophisticated planetary period systems that predict timing of events. The Vimshottari Dasha, a 120-year cycle, can indicate when specific life themes will activate.\n\n**Divisional Charts (Vargas):** Up to 16 additional charts derived from the main birth chart, each revealing specific life areas in detail.\n\n**Remedial Measures:** Specific remedies including gemstones, mantras, and charitable acts prescribed based on chart weaknesses.",
+        "illustration": "star.fill",
+        "example": null
+      },
+      {
+        "id": "practical-use",
+        "heading": "How Vedic Astrology is Used",
+        "content": "In India, Jyotish is integrated into daily life:\n\n**Muhurta (Electional Astrology):** Choosing auspicious times for important activities like marriages, business launches, or travel.\n\n**Kundli Matching:** Comparing birth charts for marriage compatibility using the Ashtakoot system.\n\n**Life Guidance:** Understanding karmic patterns, timing career moves, and navigating relationship challenges.\n\n**Panchang Consultation:** Daily consultation of the Vedic almanac for auspicious timings.\n\nWhether you're a skeptic or believer, Jyotish offers a rich symbolic language for understanding life patterns and timing.",
+        "illustration": "calendar",
+        "example": null
+      }
+    ],
+    "keyTakeaways": [
+      "Vedic astrology uses the sidereal zodiac, aligned with actual star positions",
+      "Your Vedic sign is typically one sign earlier than your Western sign",
+      "Nakshatras (27 lunar mansions) provide more detailed personality analysis",
+      "The Dasha system offers precise timing for life predictions",
+      "Jyotish includes specific remedies for chart challenges"
+    ],
+    "relatedArticleIds": ["understanding-your-kundli", "the-27-nakshatras"],
+    "relatedTermIds": ["vedic-astrology", "ayanamsa", "nakshatra", "vimshottari-dasha"]
+  },
+  {
+    "id": "understanding-your-kundli",
+    "title": "Understanding Your Birth Chart",
+    "subtitle": "A guide to reading your Kundli",
+    "category": "Fundamentals",
+    "readingTime": 7,
+    "difficulty": "Beginner",
+    "introduction": "Your Kundli (birth chart) is a celestial snapshot of the sky at your exact moment of birth. This cosmic map shows where the Sun, Moon, and planets were positioned across the 12 zodiac signs and 12 houses. Learning to read this chart reveals your personality traits, life themes, and potential destiny.",
+    "sections": [
+      {
+        "id": "what-is-kundli",
+        "heading": "What is a Kundli?",
+        "content": "A Kundli (also called Janam Kundli or Janma Patri) literally means 'coiled' or 'circular' in Sanskrit, referring to the circular representation of the heavens.\n\nTo create an accurate Kundli, three pieces of information are essential:\n1. **Date of Birth:** Determines planetary positions\n2. **Time of Birth:** Determines the Ascendant and house positions\n3. **Place of Birth:** Adjusts for geographic location\n\nEven a few minutes difference in birth time can change the Ascendant and significantly alter the chart interpretation.",
+        "illustration": "square.grid.2x2",
+        "example": null
+      },
+      {
+        "id": "chart-formats",
+        "heading": "North vs. South Indian Chart Styles",
+        "content": "Vedic charts are typically displayed in two formats:\n\n**North Indian Style:** The houses are fixed in position, and signs rotate. The Ascendant is always at the top. This style is common in North India.\n\n**South Indian Style:** The signs are fixed in position, and the Ascendant rotates to its sign position. Aries is always in a fixed location. This style is common in South India.\n\nBoth contain the same information - only the visual representation differs. This app supports both styles in Settings.",
+        "illustration": "square.split.2x2",
+        "example": null
+      },
+      {
+        "id": "key-elements",
+        "heading": "Key Elements to Understand",
+        "content": "**The Ascendant (Lagna):** The zodiac sign rising on the eastern horizon at your birth. This is the starting point of your chart and represents your personality, physical body, and overall life approach.\n\n**The Moon Sign (Rashi):** Where the Moon was at birth. In Vedic astrology, this is considered as important as the Sun sign, indicating your emotional nature and mind.\n\n**Planetary Positions:** Each of the 9 Vedic planets occupies a sign and house, influencing that area of life.\n\n**House Placements:** The 12 houses represent different life areas, from self (1st) to spirituality (12th).",
+        "illustration": "globe",
+        "example": {
+          "title": "Reading a Placement",
+          "description": "If Jupiter is in the 5th house in Sagittarius, this suggests good fortune regarding children and creativity (5th house themes), expressed through wisdom and expansion (Jupiter), in an optimistic and philosophical manner (Sagittarius).",
+          "visual": null
+        }
+      },
+      {
+        "id": "aspects",
+        "heading": "Planetary Aspects",
+        "content": "In Vedic astrology, planets cast aspects (Drishti) on other houses and planets:\n\n**All planets** aspect the 7th house from their position (opposite house).\n\n**Mars** additionally aspects the 4th and 8th houses.\n\n**Jupiter** additionally aspects the 5th and 9th houses.\n\n**Saturn** additionally aspects the 3rd and 10th houses.\n\n**Rahu and Ketu** aspect the 5th and 9th houses.\n\nAspects modify the energy of the houses and planets they touch, bringing additional influences to consider.",
+        "illustration": "arrow.triangle.2.circlepath",
+        "example": null
+      },
+      {
+        "id": "what-to-look-for",
+        "heading": "First Things to Check",
+        "content": "When examining your chart, start with:\n\n1. **Ascendant Sign:** Your basic personality and life approach\n2. **Ascendant Lord:** Where is it placed? This colors your entire life\n3. **Moon Sign and Nakshatra:** Your emotional nature and mind\n4. **Strong Planets:** Exalted or in own sign - these are your strengths\n5. **Weak Planets:** Debilitated or afflicted - areas needing attention\n6. **Current Dasha:** What planetary period are you in?\n\nTap any element in this app to learn what it means for your specific chart.",
+        "illustration": "magnifyingglass",
+        "example": null
+      }
+    ],
+    "keyTakeaways": [
+      "A Kundli requires accurate birth date, time, and place",
+      "The Ascendant (Lagna) is the foundation of your chart",
+      "Moon sign is equally important to Sun sign in Vedic astrology",
+      "Each planet influences life based on its house and sign placement",
+      "Aspects modify planetary energies across the chart"
+    ],
+    "relatedArticleIds": ["what-is-vedic-astrology", "the-12-houses", "the-9-planets"],
+    "relatedTermIds": ["birth-chart", "house.1", "planet.moon", "nakshatra"]
+  },
+  {
+    "id": "the-9-planets",
+    "title": "The Nine Planets (Navagraha)",
+    "subtitle": "Understanding the celestial bodies in Vedic astrology",
+    "category": "Planets",
+    "readingTime": 8,
+    "difficulty": "Beginner",
+    "introduction": "Vedic astrology recognizes nine celestial bodies called Navagraha - the Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn, and the two lunar nodes Rahu and Ketu. Each planet represents specific energies and life themes that shape your destiny according to their placement in your birth chart.",
+    "sections": [
+      {
+        "id": "overview",
+        "heading": "The Planetary Cabinet",
+        "content": "The nine planets are traditionally organized like a royal court:\n\n- **Sun (Surya):** The King - soul, authority, father\n- **Moon (Chandra):** The Queen - mind, emotions, mother\n- **Mars (Mangal):** The Commander - energy, courage, siblings\n- **Mercury (Budha):** The Prince - intellect, communication, learning\n- **Jupiter (Guru):** The Minister - wisdom, fortune, children\n- **Venus (Shukra):** The Counselor - love, beauty, marriage\n- **Saturn (Shani):** The Servant - karma, discipline, delays\n- **Rahu:** The Revolutionary - desires, obsession, foreign matters\n- **Ketu:** The Mystic - spirituality, liberation, past lives\n\nEach planet has natural significations (Karakatva) that it represents regardless of chart placement.",
+        "illustration": "globe",
+        "example": null
+      },
+      {
+        "id": "benefics-malefics",
+        "heading": "Benefics and Malefics",
+        "content": "Planets are classified by their natural tendency:\n\n**Natural Benefics (Shubha Graha):**\n- Jupiter - The great benefic\n- Venus - The lesser benefic\n- Well-placed Mercury\n- Waxing Moon (bright half)\n\n**Natural Malefics (Papa Graha):**\n- Saturn - The great malefic\n- Mars - The lesser malefic\n- Rahu and Ketu - Shadow planets\n- Waning Moon (dark half)\n- Afflicted Mercury\n\n**Important:** Natural malefics aren't necessarily bad! They can give excellent results depending on the houses they rule and occupy. Similarly, benefics can cause problems if poorly placed.",
+        "illustration": "scale.3d",
+        "example": null
+      },
+      {
+        "id": "planetary-strength",
+        "heading": "Planetary Dignity",
+        "content": "Planets gain or lose strength based on sign placement:\n\n**Exalted (Uchcha):** Strongest position, planet expresses its best qualities\n- Sun in Aries, Moon in Taurus, Mars in Capricorn, etc.\n\n**Own Sign (Swakshetra):** Strong and comfortable\n- Sun in Leo, Moon in Cancer, Mars in Aries/Scorpio, etc.\n\n**Friend's Sign:** Reasonably comfortable\n\n**Neutral Sign:** Normal expression\n\n**Enemy's Sign:** Somewhat uncomfortable\n\n**Debilitated (Neecha):** Weakest position, struggles to express positively\n- Sun in Libra, Moon in Scorpio, Mars in Cancer, etc.\n\nRetrograde (Vakri) planets are also significant, often showing intensified or internalized energy.",
+        "illustration": "arrow.up.arrow.down",
+        "example": {
+          "title": "Jupiter's Dignity",
+          "description": "Jupiter is exalted in Cancer (gives maximum wisdom and fortune), in own sign in Sagittarius/Pisces (naturally wise), and debilitated in Capricorn (may struggle with faith or face delays in fortune).",
+          "visual": null
+        }
+      },
+      {
+        "id": "dasha-lords",
+        "heading": "Planets and Timing",
+        "content": "Each planet rules specific periods in your life through the Dasha system:\n\n- Ketu: 7 years\n- Venus: 20 years\n- Sun: 6 years\n- Moon: 10 years\n- Mars: 7 years\n- Rahu: 18 years\n- Jupiter: 16 years\n- Saturn: 19 years\n- Mercury: 17 years\n\nDuring a planet's Dasha period, its themes become prominent in your life. A well-placed planet's Dasha brings its positive significations; a poorly placed one may bring challenges.\n\nYour current Dasha lord is shown in the app's Dasha section.",
+        "illustration": "clock",
+        "example": null
+      }
+    ],
+    "keyTakeaways": [
+      "Nine planets (Navagraha) form the foundation of Vedic astrology",
+      "Each planet rules specific life themes and significations",
+      "Planetary dignity (exalted, own sign, debilitated) affects strength",
+      "Natural malefics can give good results depending on placement",
+      "Dasha periods activate different planetary themes throughout life"
+    ],
+    "relatedArticleIds": ["understanding-your-kundli", "planetary-periods-dasha"],
+    "relatedTermIds": ["planet.sun", "planet.moon", "planet.jupiter", "planet.saturn", "planet.rahu", "planet.ketu"]
+  },
+  {
+    "id": "the-12-houses",
+    "title": "The Twelve Houses (Bhavas)",
+    "subtitle": "Life areas in your birth chart",
+    "category": "Houses",
+    "readingTime": 6,
+    "difficulty": "Beginner",
+    "introduction": "The 12 houses (Bhavas) of a birth chart represent different areas of life - from your personality and wealth to career and spirituality. Understanding which planets occupy which houses, and where each house lord is placed, reveals how different life areas will unfold for you.",
+    "sections": [
+      {
+        "id": "house-meanings",
+        "heading": "The Twelve Houses Overview",
+        "content": "**1st House (Lagna):** Self, body, personality, health, beginnings\n**2nd House:** Wealth, family, speech, food, values\n**3rd House:** Siblings, courage, communication, short journeys\n**4th House:** Mother, home, property, vehicles, education\n**5th House:** Children, creativity, romance, intelligence, past merit\n**6th House:** Enemies, diseases, debts, service, obstacles\n**7th House:** Marriage, partnerships, business, public relations\n**8th House:** Longevity, transformation, occult, inheritance\n**9th House:** Father, fortune, higher learning, religion, long journeys\n**10th House:** Career, fame, authority, achievements\n**11th House:** Gains, income, friends, wishes, elder siblings\n**12th House:** Losses, expenses, foreign lands, spirituality, sleep",
+        "illustration": "square.grid.2x2",
+        "example": null
+      },
+      {
+        "id": "house-categories",
+        "heading": "Categories of Houses",
+        "content": "Houses are grouped by their nature:\n\n**Kendra (Angular) - 1, 4, 7, 10:**\nThe four pillars providing stability. Planets here are strong. These are the most important houses for worldly success.\n\n**Trikona (Trine) - 1, 5, 9:**\nHouses of dharma and fortune. Highly auspicious, bringing luck and merit.\n\n**Dusthana (Difficult) - 6, 8, 12:**\nChallenging houses dealing with obstacles, transformation, and loss. However, they also bring growth through adversity.\n\n**Upachaya (Growth) - 3, 6, 10, 11:**\nHouses that improve with age. Even malefics do well here.\n\n**Maraka (Killer) - 2, 7:**\nThese houses have potential to cause health issues during their periods.",
+        "illustration": "square.grid.2x2.fill",
+        "example": null
+      },
+      {
+        "id": "reading-houses",
+        "heading": "How to Read Houses",
+        "content": "To understand any house in your chart, consider:\n\n1. **Sign on the house:** The zodiac sign influences how that life area expresses\n2. **House Lord:** The planet ruling that sign - its placement shows support or challenge\n3. **Planets in the house:** Their nature colors that life area\n4. **Aspects to the house:** Other planets influencing from a distance\n\nFor example, for career (10th house):\n- What sign is on the 10th?\n- Where is the 10th lord placed?\n- Any planets in the 10th?\n- What planets aspect the 10th?",
+        "illustration": "magnifyingglass",
+        "example": {
+          "title": "Analyzing the 7th House",
+          "description": "If Libra is your 7th house, Venus is your 7th lord. If Venus is in the 5th house with Jupiter, it suggests marriage may come through romance (5th house), with a spouse who is wise and fortunate (Jupiter conjunction).",
+          "visual": null
+        }
+      }
+    ],
+    "keyTakeaways": [
+      "12 houses represent all areas of life from self to spirituality",
+      "Kendra and Trikona houses are most auspicious",
+      "House lords' placement is as important as planets in houses",
+      "Dusthana houses challenge but also transform",
+      "Multiple factors must be combined to assess any life area"
+    ],
+    "relatedArticleIds": ["understanding-your-kundli", "the-9-planets"],
+    "relatedTermIds": ["house", "house.1", "house.7", "house.10", "house-category.kendra", "house-category.trikona"]
+  },
+  {
+    "id": "reading-your-panchang",
+    "title": "Reading Your Panchang",
+    "subtitle": "Understanding the Vedic daily almanac",
+    "category": "Panchang",
+    "readingTime": 5,
+    "difficulty": "Beginner",
+    "introduction": "The Panchang is the traditional Vedic calendar that tracks five essential cosmic elements each day. Consulting the Panchang helps you align activities with favorable cosmic conditions and avoid inauspicious periods. This daily practice connects you with the rhythms of the cosmos.",
+    "sections": [
+      {
+        "id": "five-limbs",
+        "heading": "The Five Limbs (Panchangas)",
+        "content": "Panchang means 'five limbs' (pancha + anga). These five elements are:\n\n**1. Tithi (Lunar Day):** Based on Moon-Sun angular distance. 30 tithis in a lunar month, each with its own nature.\n\n**2. Vara (Weekday):** Each day is ruled by a planet - Sunday (Sun), Monday (Moon), etc.\n\n**3. Nakshatra (Lunar Mansion):** Which of the 27 nakshatras the Moon occupies.\n\n**4. Yoga (Luni-Solar Combination):** One of 27 yogas based on Sun+Moon longitude. Different from chart yogas.\n\n**5. Karana (Half Tithi):** Half of a tithi, there are 11 karanas that repeat.\n\nThese five elements combine to determine the quality of each day.",
+        "illustration": "calendar",
+        "example": null
+      },
+      {
+        "id": "using-panchang",
+        "heading": "Practical Applications",
+        "content": "The Panchang is consulted for:\n\n**Muhurta Selection:** Finding auspicious times for:\n- Starting new businesses or jobs\n- Signing contracts\n- Marriage ceremonies\n- Moving to a new home\n- Starting educational courses\n\n**Avoiding Inauspicious Times:**\n- Rahu Kaal: ~90 minutes daily, varies by weekday\n- Yamaganda: Another inauspicious period\n- Gulika Kaal: Period to avoid\n\n**Religious Observances:**\n- Ekadashi fasting (11th tithi)\n- Pradosh Vrat (13th tithi)\n- Purnima/Amavasya observances",
+        "illustration": "clock.badge.checkmark",
+        "example": null
+      },
+      {
+        "id": "rahu-kaal",
+        "heading": "Understanding Rahu Kaal",
+        "content": "Rahu Kaal is the most commonly observed inauspicious period. It occurs daily for about 90 minutes.\n\nThe timing varies by weekday:\n- **Sunday:** Late afternoon\n- **Monday:** Morning\n- **Tuesday:** Afternoon\n- **Wednesday:** Midday\n- **Thursday:** Early afternoon\n- **Friday:** Late morning\n- **Saturday:** Mid-morning\n\nDuring Rahu Kaal, avoid starting new ventures, signing important documents, or beginning journeys. Activities already in progress can continue.\n\nThe app shows today's exact Rahu Kaal timing for your location.",
+        "illustration": "exclamationmark.triangle",
+        "example": null
+      }
+    ],
+    "keyTakeaways": [
+      "Panchang tracks five daily cosmic elements",
+      "Muhurta (auspicious timing) is selected using Panchang",
+      "Rahu Kaal should be avoided for starting new activities",
+      "Tithis determine fasting days and religious observances",
+      "The daily nakshatra affects the general energy of the day"
+    ],
+    "relatedArticleIds": ["what-is-vedic-astrology"],
+    "relatedTermIds": ["panchang", "tithi", "nakshatra", "rahu-kaal"]
+  },
+  {
+    "id": "kundli-matching-explained",
+    "title": "Kundli Matching Explained",
+    "subtitle": "The science of compatibility in Vedic astrology",
+    "category": "Matching",
+    "readingTime": 6,
+    "difficulty": "Beginner",
+    "introduction": "Kundli matching (also called Kundali Milan) is the traditional Vedic method of assessing compatibility between prospective marriage partners. By comparing birth charts, astrologers evaluate harmony across multiple dimensions including temperament, health, prosperity, and longevity of the relationship.",
+    "sections": [
+      {
+        "id": "why-matching",
+        "heading": "Why Match Kundlis?",
+        "content": "In Vedic tradition, marriage is considered a sacred union meant to last a lifetime. Kundli matching aims to:\n\n- Assess overall compatibility between partners\n- Identify potential challenges before marriage\n- Ensure the couple's doshas (afflictions) are compatible or cancelable\n- Predict the quality and longevity of married life\n- Suggest remedies if problematic combinations exist\n\nWhile not a guarantee of marital success, matching helps identify areas that may need attention.",
+        "illustration": "heart.fill",
+        "example": null
+      },
+      {
+        "id": "ashtakoot",
+        "heading": "Ashtakoot Gun Milan",
+        "content": "The most popular matching method is Ashtakoot (eight-fold) Gun Milan, which scores 36 points (Gunas) across eight factors:\n\n1. **Varna (1 pt):** Spiritual compatibility\n2. **Vashya (2 pts):** Mutual attraction/influence\n3. **Tara (3 pts):** Birth star compatibility\n4. **Yoni (4 pts):** Sexual/physical compatibility\n5. **Graha Maitri (5 pts):** Mental compatibility (Moon lords)\n6. **Gana (6 pts):** Temperament (Deva, Manushya, Rakshasa)\n7. **Bhakoot (7 pts):** Emotional and financial harmony\n8. **Nadi (8 pts):** Health and progeny\n\n**Score Interpretation:**\n- Below 18: Not recommended\n- 18-24: Average, remedies may help\n- 24-32: Good compatibility\n- 32+: Excellent match",
+        "illustration": "chart.bar.fill",
+        "example": null
+      },
+      {
+        "id": "doshas",
+        "heading": "Important Doshas in Matching",
+        "content": "Beyond Gun Milan, certain doshas are carefully examined:\n\n**Manglik Dosha:**\nMars in 1st, 2nd, 4th, 7th, 8th, or 12th house. If one partner is Manglik and the other isn't, it's traditionally considered problematic. However, many cancellations exist.\n\n**Nadi Dosha:**\nWhen both partners have the same Nadi (scored 0 in Ashtakoot), traditionally associated with health issues and progeny problems.\n\n**Bhakoot Dosha:**\nCertain Moon sign combinations (like 6-8 or 12-2) that may cause conflict.\n\nMost doshas have cancellation conditions - a skilled astrologer examines these carefully before concluding incompatibility.",
+        "illustration": "exclamationmark.triangle",
+        "example": null
+      },
+      {
+        "id": "beyond-guna",
+        "heading": "Beyond Guna Matching",
+        "content": "A complete compatibility analysis also considers:\n\n**7th House Analysis:** The marriage house in both charts\n\n**Venus Position:** For males, Venus represents wife\n\n**Jupiter Position:** For females, Jupiter represents husband\n\n**Navamsa Chart:** The D9 divisional chart specifically for marriage\n\n**Dasha Compatibility:** Whether both will experience favorable periods together\n\nHigh Guna score with poor chart compatibility may still face challenges, while moderate score with good chart factors can be successful.",
+        "illustration": "magnifyingglass",
+        "example": {
+          "title": "Balanced Analysis",
+          "description": "A couple scoring 28/36 with Nadi Dosha might still be compatible if the dosha is canceled by different Rashi or specific Nakshatra combinations, and both charts show strong 7th houses.",
+          "visual": null
+        }
+      }
+    ],
+    "keyTakeaways": [
+      "Ashtakoot scores 36 points across 8 compatibility factors",
+      "18+ points is considered minimum, 24+ is good",
+      "Nadi and Manglik doshas receive special attention",
+      "Many doshas have cancellation conditions",
+      "Complete matching examines full charts beyond just Guna score"
+    ],
+    "relatedArticleIds": ["understanding-your-kundli"],
+    "relatedTermIds": ["ashtakoot", "ashtakoot.nadi", "dosha.manglik", "matching"]
+  }
+]

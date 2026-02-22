@@ -43,6 +43,23 @@ struct CompositeChartView: View {
                     }
                     .padding(16)
                 }
+            } else {
+                VStack(spacing: 16) {
+                    Image(systemName: "chart.pie")
+                        .font(.system(size: 60))
+                        .foregroundColor(.kundliTextSecondary)
+
+                    Text("Unable to calculate composite chart")
+                        .font(.kundliSubheadline)
+                        .foregroundColor(.kundliTextSecondary)
+
+                    Button { calculateCompositeChart() } label: {
+                        Label("Retry", systemImage: "arrow.clockwise")
+                            .font(.kundliSubheadline)
+                            .foregroundColor(.kundliPrimary)
+                    }
+                    .padding(.top, 8)
+                }
             }
         }
         .navigationTitle("Composite Chart")
@@ -54,7 +71,7 @@ struct CompositeChartView: View {
                 Button {
                     showInterpretation.toggle()
                 } label: {
-                    Image(systemName: showInterpretation ? "text.alignleft" : "text.alignleft")
+                    Image(systemName: showInterpretation ? "text.alignleft" : "chart.bar.doc.horizontal")
                         .foregroundColor(.kundliPrimary)
                 }
             }
@@ -354,13 +371,13 @@ struct CompositeChartView: View {
     private func calculateCompositeChart() {
         isLoading = true
 
-        DispatchQueue.global(qos: .userInitiated).async {
+        Task {
             let chart = compositeService.calculateCompositeChart(
                 kundli1: kundli1,
                 kundli2: kundli2
             )
 
-            DispatchQueue.main.async {
+            await MainActor.run {
                 compositeChart = chart
                 isLoading = false
             }
@@ -537,6 +554,11 @@ struct WesternCompositeChart: View {
     let chart: CompositeChart
     let size: CGFloat
 
+    private var halfSize: CGFloat { size / 2 }
+    private var innerSize: CGFloat { size * 0.7 }
+    private var signRadius: CGFloat { size * 0.42 }
+    private var planetRadius: CGFloat { size * 0.28 }
+
     var body: some View {
         ZStack {
             // Outer circle
@@ -547,63 +569,78 @@ struct WesternCompositeChart: View {
             // Inner circle
             Circle()
                 .stroke(Color.kundliPrimary.opacity(0.2), lineWidth: 0.5)
-                .frame(width: size * 0.7, height: size * 0.7)
+                .frame(width: innerSize, height: innerSize)
 
             // Zodiac divisions (12 segments)
-            ForEach(0..<12) { i in
-                let angle = Double(i) * 30 - 90
-                let radian = angle * .pi / 180
+            zodiacDivisions
 
+            // Planets
+            planetMarkers
+
+            // Ascendant marker
+            ascendantMarker
+        }
+        .frame(width: size, height: size)
+    }
+
+    private var zodiacDivisions: some View {
+        ForEach(0..<12, id: \.self) { i in
+            let angle: Double = Double(i) * 30 - 90
+            let radian: Double = angle * .pi / 180
+            let endX: CGFloat = halfSize + CGFloat(cos(radian)) * halfSize
+            let endY: CGFloat = halfSize + CGFloat(sin(radian)) * halfSize
+
+            ZStack {
                 Path { path in
-                    path.move(to: CGPoint(x: size/2, y: size/2))
-                    path.addLine(to: CGPoint(
-                        x: size/2 + cos(radian) * size/2,
-                        y: size/2 + sin(radian) * size/2
-                    ))
+                    path.move(to: CGPoint(x: halfSize, y: halfSize))
+                    path.addLine(to: CGPoint(x: endX, y: endY))
                 }
                 .stroke(Color.kundliPrimary.opacity(0.2), lineWidth: 0.5)
 
                 // Sign symbol
-                let signAngle = (Double(i) * 30 + 15 - 90) * .pi / 180
-                let signRadius = size * 0.42
-                Text(ZodiacSign.allCases[i].symbol)
-                    .font(.system(size: 12))
-                    .foregroundColor(.kundliPrimary.opacity(0.6))
-                    .position(
-                        x: size/2 + cos(signAngle) * signRadius,
-                        y: size/2 + sin(signAngle) * signRadius
-                    )
+                signSymbol(index: i)
             }
-
-            // Planets
-            ForEach(chart.planets) { planet in
-                let angle = (planet.longitude - 90) * .pi / 180
-                let radius = size * 0.28
-
-                Text(planet.symbol)
-                    .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.kundliPrimary)
-                    .position(
-                        x: size/2 + CGFloat(cos(angle)) * radius,
-                        y: size/2 + CGFloat(sin(angle)) * radius
-                    )
-            }
-
-            // Ascendant marker
-            let ascAngle = (chart.ascendant.longitude - 90) * .pi / 180
-            Path { path in
-                path.move(to: CGPoint(
-                    x: size/2 + cos(ascAngle) * size * 0.35,
-                    y: size/2 + sin(ascAngle) * size * 0.35
-                ))
-                path.addLine(to: CGPoint(
-                    x: size/2 + cos(ascAngle) * size * 0.5,
-                    y: size/2 + sin(ascAngle) * size * 0.5
-                ))
-            }
-            .stroke(Color.kundliPrimary, lineWidth: 2)
         }
-        .frame(width: size, height: size)
+    }
+
+    private func signSymbol(index: Int) -> some View {
+        let signAngle: Double = (Double(index) * 30 + 15 - 90) * .pi / 180
+        let x: CGFloat = halfSize + CGFloat(cos(signAngle)) * signRadius
+        let y: CGFloat = halfSize + CGFloat(sin(signAngle)) * signRadius
+
+        return Text(ZodiacSign.allCases[index].symbol)
+            .font(.system(size: 12))
+            .foregroundColor(.kundliPrimary.opacity(0.6))
+            .position(x: x, y: y)
+    }
+
+    private var planetMarkers: some View {
+        ForEach(chart.planets) { planet in
+            let angle: Double = (planet.longitude - 90) * .pi / 180
+            let x: CGFloat = halfSize + CGFloat(cos(angle)) * planetRadius
+            let y: CGFloat = halfSize + CGFloat(sin(angle)) * planetRadius
+
+            Text(planet.symbol)
+                .font(.system(size: 14, weight: .bold))
+                .foregroundColor(.kundliPrimary)
+                .position(x: x, y: y)
+        }
+    }
+
+    private var ascendantMarker: some View {
+        let ascAngle: Double = (chart.ascendant.longitude - 90) * .pi / 180
+        let innerRadius: CGFloat = size * 0.35
+        let outerRadius: CGFloat = size * 0.5
+        let startX: CGFloat = halfSize + CGFloat(cos(ascAngle)) * innerRadius
+        let startY: CGFloat = halfSize + CGFloat(sin(ascAngle)) * innerRadius
+        let endX: CGFloat = halfSize + CGFloat(cos(ascAngle)) * outerRadius
+        let endY: CGFloat = halfSize + CGFloat(sin(ascAngle)) * outerRadius
+
+        return Path { path in
+            path.move(to: CGPoint(x: startX, y: startY))
+            path.addLine(to: CGPoint(x: endX, y: endY))
+        }
+        .stroke(Color.kundliPrimary, lineWidth: 2)
     }
 }
 

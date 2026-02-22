@@ -261,6 +261,7 @@ struct FestivalDetailView: View {
         case .auspicious: return .kundliInfo
         case .regional: return .purple
         case .newYear: return .red
+        case .grahaPravesh: return .kundliPrimary
         }
     }
 }

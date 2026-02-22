@@ -5,7 +5,6 @@ struct GrahaPraveshView: View {
     @State private var grahaPraveshDates: [GrahaPraveshDate] = []
     @State private var isLoading = true
     @State private var selectedDate: GrahaPraveshDate?
-    @State private var showDetailSheet = false
 
     private let grahaPraveshService = GrahaPraveshService.shared
 
@@ -28,10 +27,8 @@ struct GrahaPraveshView: View {
         .onAppear {
             loadDates()
         }
-        .sheet(isPresented: $showDetailSheet) {
-            if let date = selectedDate {
-                GrahaPraveshDetailSheet(grahaPraveshDate: date)
-            }
+        .sheet(item: $selectedDate) { date in
+            GrahaPraveshDetailSheet(grahaPraveshDate: date)
         }
     }
 
@@ -64,6 +61,13 @@ struct GrahaPraveshView: View {
             Text("Unable to calculate Graha Pravesh dates")
                 .font(.kundliSubheadline)
                 .foregroundColor(.kundliTextSecondary)
+
+            Button { loadDates() } label: {
+                Label("Retry", systemImage: "arrow.clockwise")
+                    .font(.kundliSubheadline)
+                    .foregroundColor(.kundliPrimary)
+            }
+            .padding(.top, 8)
         }
     }
 
@@ -83,7 +87,6 @@ struct GrahaPraveshView: View {
                     ForEach(grahaPraveshDates) { date in
                         GrahaPraveshDateCard(date: date) {
                             selectedDate = date
-                            showDetailSheet = true
                         }
                     }
                 }
@@ -139,29 +142,13 @@ struct GrahaPraveshView: View {
                         .foregroundColor(.kundliTextSecondary)
 
                     HStack(spacing: 8) {
-                        factorChip("Nakshatra", icon: "star.fill")
-                        factorChip("Tithi", icon: "moon.fill")
-                        factorChip("Weekday", icon: "calendar")
+                        FactorChipView(text: "Nakshatra", icon: "star.fill")
+                        FactorChipView(text: "Tithi", icon: "moon.fill")
+                        FactorChipView(text: "Weekday", icon: "calendar")
                     }
                 }
             }
         }
-    }
-
-    private func factorChip(_ text: String, icon: String) -> some View {
-        HStack(spacing: 4) {
-            Image(systemName: icon)
-                .font(.system(size: 10))
-            Text(text)
-                .font(.system(size: 11))
-        }
-        .foregroundColor(.kundliPrimary)
-        .padding(.horizontal, 8)
-        .padding(.vertical, 4)
-        .background(
-            Capsule()
-                .fill(Color.kundliPrimary.opacity(0.15))
-        )
     }
 
     // MARK: - Load Data
@@ -169,10 +156,10 @@ struct GrahaPraveshView: View {
     private func loadDates() {
         isLoading = true
 
-        DispatchQueue.global(qos: .userInitiated).async {
+        Task {
             let dates = grahaPraveshService.getUpcomingGrahaPraveshDates(limit: 12)
 
-            DispatchQueue.main.async {
+            await MainActor.run {
                 grahaPraveshDates = dates
                 isLoading = false
             }
@@ -230,12 +217,12 @@ struct GrahaPraveshDateCard: View {
                         // Quality badge
                         HStack {
                             Circle()
-                                .fill(qualityColor)
+                                .fill(date.qualityRating.color)
                                 .frame(width: 8, height: 8)
 
                             Text(date.qualityRating.rawValue)
                                 .font(.system(size: 11, weight: .medium))
-                                .foregroundColor(qualityColor)
+                                .foregroundColor(date.qualityRating.color)
                         }
                     }
 
@@ -260,15 +247,6 @@ struct GrahaPraveshDateCard: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
         return formatter.string(from: date.date)
-    }
-
-    private var qualityColor: Color {
-        switch date.qualityRating {
-        case .excellent: return .kundliPrimary
-        case .veryGood: return .kundliSuccess
-        case .good: return .kundliInfo
-        case .fair: return .kundliTextSecondary
-        }
     }
 }
 
@@ -368,12 +346,12 @@ struct GrahaPraveshDetailSheet: View {
 
                     Text(grahaPraveshDate.qualityRating.rawValue)
                         .font(.kundliSubheadline)
-                        .foregroundColor(qualityColor)
+                        .foregroundColor(grahaPraveshDate.qualityRating.color)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 4)
                         .background(
                             Capsule()
-                                .fill(qualityColor.opacity(0.2))
+                                .fill(grahaPraveshDate.qualityRating.color.opacity(0.2))
                         )
                 }
 
@@ -389,7 +367,7 @@ struct GrahaPraveshDetailSheet: View {
                             .frame(height: 8)
 
                         RoundedRectangle(cornerRadius: 4)
-                            .fill(qualityColor)
+                            .fill(grahaPraveshDate.qualityRating.color)
                             .frame(width: geometry.size.width * CGFloat(grahaPraveshDate.qualityScore) / 10, height: 8)
                     }
                 }
@@ -453,14 +431,6 @@ struct GrahaPraveshDetailSheet: View {
         }
     }
 
-    private var qualityColor: Color {
-        switch grahaPraveshDate.qualityRating {
-        case .excellent: return .kundliPrimary
-        case .veryGood: return .kundliSuccess
-        case .good: return .kundliInfo
-        case .fair: return .kundliTextSecondary
-        }
-    }
 }
 
 // MARK: - Preview

@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 /// Service for calculating auspicious Graha Pravesh (house-warming) dates
 /// Graha Pravesh is an important ceremony for moving into a new home
@@ -48,13 +49,21 @@ final class GrahaPraveshService {
 
     /// Get auspicious Graha Pravesh dates for a given year
     /// Returns dates that meet the astrological criteria for house-warming
-    func getGrahaPraveshDates(for year: Int, limit: Int = 12) -> [GrahaPraveshDate] {
+    func getGrahaPraveshDates(
+        for year: Int,
+        latitude: Double = 28.6139,
+        longitude: Double = 77.2090,
+        timezone: TimeZone = TimeZone(identifier: "Asia/Kolkata") ?? .current,
+        limit: Int = 12
+    ) -> [GrahaPraveshDate] {
         var auspiciousDates: [GrahaPraveshDate] = []
-        let calendar = Calendar.current
 
         // Search through each month
         for month in 1...12 {
-            let datesInMonth = findAuspiciousDatesInMonth(year: year, month: month)
+            let datesInMonth = findAuspiciousDatesInMonth(
+                year: year, month: month,
+                latitude: latitude, longitude: longitude, timezone: timezone
+            )
             auspiciousDates.append(contentsOf: datesInMonth)
 
             // Limit total results
@@ -75,16 +84,21 @@ final class GrahaPraveshService {
     }
 
     /// Get upcoming Graha Pravesh dates from current date
-    func getUpcomingGrahaPraveshDates(limit: Int = 6) -> [GrahaPraveshDate] {
+    func getUpcomingGrahaPraveshDates(
+        latitude: Double = 28.6139,
+        longitude: Double = 77.2090,
+        timezone: TimeZone = TimeZone(identifier: "Asia/Kolkata") ?? .current,
+        limit: Int = 6
+    ) -> [GrahaPraveshDate] {
         let calendar = Calendar.current
         let today = Date()
         let currentYear = calendar.component(.year, from: today)
 
-        var dates = getGrahaPraveshDates(for: currentYear, limit: limit * 2)
+        var dates = getGrahaPraveshDates(for: currentYear, latitude: latitude, longitude: longitude, timezone: timezone, limit: limit * 2)
 
         // Add next year's dates if needed
         if dates.filter({ $0.date >= today }).count < limit {
-            dates.append(contentsOf: getGrahaPraveshDates(for: currentYear + 1, limit: limit))
+            dates.append(contentsOf: getGrahaPraveshDates(for: currentYear + 1, latitude: latitude, longitude: longitude, timezone: timezone, limit: limit))
         }
 
         return dates
@@ -95,7 +109,10 @@ final class GrahaPraveshService {
     }
 
     /// Find auspicious dates in a specific month
-    private func findAuspiciousDatesInMonth(year: Int, month: Int) -> [GrahaPraveshDate] {
+    private func findAuspiciousDatesInMonth(
+        year: Int, month: Int,
+        latitude: Double, longitude: Double, timezone: TimeZone
+    ) -> [GrahaPraveshDate] {
         var dates: [GrahaPraveshDate] = []
         let calendar = Calendar.current
 
@@ -121,12 +138,12 @@ final class GrahaPraveshService {
                 continue
             }
 
-            // Calculate Panchang for this date (using default Delhi location)
+            // Calculate Panchang for this date
             let panchang = panchangService.calculatePanchang(
                 date: date,
-                latitude: 28.6139,
-                longitude: 77.2090,
-                timezone: TimeZone(identifier: "Asia/Kolkata")!
+                latitude: latitude,
+                longitude: longitude,
+                timezone: timezone
             )
 
             // Check if nakshatra is auspicious
@@ -348,12 +365,12 @@ enum GrahaPraveshQuality: String {
         }
     }
 
-    var color: String {
+    var color: Color {
         switch self {
-        case .excellent: return "gold"
-        case .veryGood: return "green"
-        case .good: return "blue"
-        case .fair: return "gray"
+        case .excellent: return .kundliPrimary
+        case .veryGood: return .kundliSuccess
+        case .good: return .kundliInfo
+        case .fair: return .kundliTextSecondary
         }
     }
 }

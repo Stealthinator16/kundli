@@ -84,7 +84,7 @@ final class AIPromptBuilder {
     // MARK: - Kundli Context Builder
 
     func buildKundliContext(from savedKundli: SavedKundli) -> String {
-        var context = """
+        let context = """
         NATIVE DETAILS:
         Name: \(savedKundli.name)
         Date of Birth: \(savedKundli.formattedDate)

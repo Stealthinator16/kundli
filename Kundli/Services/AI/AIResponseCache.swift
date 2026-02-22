@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 
 final class AIResponseCache {
     static let shared = AIResponseCache()
@@ -45,7 +46,7 @@ final class AIResponseCache {
             let data = try encoder.encode(report)
             try data.write(to: fileURL)
         } catch {
-            print("Failed to cache report: \(error.localizedDescription)")
+            AppLogger.ai.error("Failed to cache report: \(error.localizedDescription)")
         }
     }
 
@@ -61,7 +62,7 @@ final class AIResponseCache {
             let data = try Data(contentsOf: fileURL)
             return try decoder.decode(AIReport.self, from: data)
         } catch {
-            print("Failed to load cached report: \(error.localizedDescription)")
+            AppLogger.ai.error("Failed to load cached report: \(error.localizedDescription)")
             return nil
         }
     }

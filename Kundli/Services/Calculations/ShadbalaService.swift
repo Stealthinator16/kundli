@@ -403,7 +403,6 @@ final class ShadbalaService {
     private func calculateHoraBala(planet: VedicPlanet, birthDate: Date, birthTime: Date) -> Double {
         // Planetary hour calculation - simplified
         let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: birthTime)
         let weekday = calendar.component(.weekday, from: birthDate)
 
         // Hora sequence based on weekday and hour
@@ -501,7 +500,7 @@ final class ShadbalaService {
             guard let aspect = aspectInfo else { continue }
 
             // Base aspect strength
-            var aspectStrength = aspect.strength
+            let aspectStrength = aspect.strength
 
             // Modify by aspecting planet's nature
             let planetNature = getPlanetNature(otherPlanet.planet)

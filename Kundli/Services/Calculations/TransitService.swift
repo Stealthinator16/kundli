@@ -502,7 +502,7 @@ extension TransitService {
         ayanamsa: AyanamsaType = .lahiri
     ) -> Date? {
         let calendar = Calendar.current
-        var currentDate = fromDate
+        let currentDate = fromDate
 
         // Get current sign
         guard let currentPosition = ephemeris.siderealLongitude(planet: planet, date: currentDate, ayanamsaType: ayanamsa) else {

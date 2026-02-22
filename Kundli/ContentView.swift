@@ -1,9 +1,12 @@
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     @Environment(NavigationCoordinator.self) private var navigationCoordinator
+    @Query(sort: \SavedKundli.createdAt) private var savedKundlis: [SavedKundli]
     @State private var showNotificationSettings = false
     @State private var settingsViewModel = SettingsViewModel()
+    @State private var panchangViewModel = HomeViewModel()
 
     var body: some View {
         @Bindable var coordinator = navigationCoordinator
@@ -30,7 +33,7 @@ struct ContentView: View {
                 ScrollView {
                     VStack(spacing: 24) {
                         // Full Panchang view
-                        let panchang = MockDataService.shared.todayPanchang()
+                        let panchang = panchangViewModel.panchang
 
                         // Date header
                         VStack(spacing: 4) {
@@ -105,25 +108,43 @@ struct ContentView: View {
                                 .fill(LinearGradient.kundliGold)
                                 .frame(width: 80, height: 80)
                                 .overlay(
-                                    Text("AS")
+                                    Text(primaryKundli?.initials ?? "?")
                                         .font(.kundliTitle2)
                                         .foregroundColor(.kundliBackground)
                                 )
 
-                            Text("Arjun Sharma")
+                            Text(primaryKundli?.name ?? "Guest")
                                 .font(.kundliTitle2)
                                 .foregroundColor(.kundliTextPrimary)
 
-                            Text("Scorpio (Vrishchika)")
-                                .font(.kundliSubheadline)
-                                .foregroundColor(.kundliTextSecondary)
+                            if let sign = primaryKundli?.ascendantSign, !sign.isEmpty {
+                                Text(sign)
+                                    .font(.kundliSubheadline)
+                                    .foregroundColor(.kundliTextSecondary)
+                            } else {
+                                Text("Add a kundli to get started")
+                                    .font(.kundliSubheadline)
+                                    .foregroundColor(.kundliTextSecondary)
+                            }
                         }
                         .padding(.top, 24)
 
                         // Menu items
                         VStack(spacing: 0) {
-                            profileMenuItem("My Kundlis", icon: "square.grid.2x2.fill")
-                            profileMenuItem("Saved Matches", icon: "heart.fill")
+                            NavigationLink {
+                                SavedKundlisView()
+                            } label: {
+                                profileMenuItemContent("My Kundlis", icon: "square.grid.2x2.fill")
+                            }
+                            .buttonStyle(.plain)
+
+                            // Learning Center - NavigationLink
+                            NavigationLink {
+                                LearningCenterView()
+                            } label: {
+                                profileMenuItemContent("Learn Vedic Astrology", icon: "book.fill")
+                            }
+                            .buttonStyle(.plain)
 
                             // Notifications - NavigationLink to NotificationSettingsView
                             NavigationLink {
@@ -140,9 +161,6 @@ struct ContentView: View {
                                 profileMenuItemContent("Settings", icon: "gearshape.fill")
                             }
                             .buttonStyle(.plain)
-
-                            profileMenuItem("Help & Support", icon: "questionmark.circle.fill")
-                            profileMenuItem("About", icon: "info.circle.fill")
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 16)
@@ -183,19 +201,8 @@ struct ContentView: View {
         }
     }
 
-    private func profileMenuItem(_ title: String, icon: String) -> some View {
-        VStack(spacing: 0) {
-            Button {
-                // Handle menu item tap
-            } label: {
-                profileMenuItemContent(title, icon: icon)
-            }
-            .buttonStyle(.plain)
-
-            Divider()
-                .background(Color.white.opacity(0.1))
-                .padding(.leading, 56)
-        }
+    private var primaryKundli: SavedKundli? {
+        savedKundlis.first
     }
 
     private func profileMenuItemContent(_ title: String, icon: String) -> some View {

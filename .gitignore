@@ -36,3 +36,9 @@ fastlane/test_output
 
 # Code Injection
 iOSInjectionProject/
+
+# Claude Code
+.claude/
+
+# Design assets
+stitch_vedic_astrology_home/

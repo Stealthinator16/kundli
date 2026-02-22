@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import CoreLocation
+import os
 
 @Observable
 class HomeViewModel {
@@ -26,17 +27,33 @@ class HomeViewModel {
 
     init() {
         // Initialize with real calculations
-        self.panchang = PanchangCalculationService.shared.calculatePanchang(
+        let initialPanchang = PanchangCalculationService.shared.calculatePanchang(
             date: Date(),
             latitude: 28.6139,
             longitude: 77.2090,
             timezone: TimeZone(identifier: "Asia/Kolkata") ?? .current
         )
-        self.dailyHoroscope = MockDataService.shared.dailyHoroscope(for: .scorpio)
+        self.panchang = initialPanchang
+        // Placeholder until async horoscope loads
+        self.dailyHoroscope = DailyHoroscope(
+            sign: .scorpio, date: Date(), overallRating: 0, loveRating: 0,
+            careerRating: 0, healthRating: 0,
+            prediction: "Loading your horoscope...", luckyNumber: 0, luckyColor: "-"
+        )
         self.greeting = Self.generateGreeting()
 
         // Calculate muhurtas
         calculateMuhurtas()
+
+        // Load AI horoscope asynchronously
+        Task {
+            let horoscope = await HoroscopeService.shared.getHoroscope(
+                for: self.userSign, panchang: initialPanchang
+            )
+            await MainActor.run {
+                self.dailyHoroscope = horoscope
+            }
+        }
     }
 
     private static func generateGreeting() -> String {
@@ -64,9 +81,13 @@ class HomeViewModel {
                 timezone: userTimezone
             )
 
+            let horoscope = await HoroscopeService.shared.getHoroscope(
+                for: self.userSign, panchang: newPanchang
+            )
+
             await MainActor.run {
                 self.panchang = newPanchang
-                self.dailyHoroscope = MockDataService.shared.dailyHoroscope(for: self.userSign)
+                self.dailyHoroscope = horoscope
                 self.calculateMuhurtas()
                 self.isLoading = false
             }
@@ -201,7 +222,7 @@ class HomeViewModel {
                 )
             }
         } catch {
-            print("Failed to schedule dasha notifications: \(error.localizedDescription)")
+            AppLogger.notifications.error("Failed to schedule dasha notifications: \(error.localizedDescription)")
         }
     }
 }

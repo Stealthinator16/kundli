@@ -32,7 +32,7 @@ enum PlanetStatus: String, Codable, CaseIterable {
     }
 }
 
-struct Planet: Identifiable {
+struct Planet: Identifiable, Codable {
     let id: UUID
     let name: String           // "Sun", "Moon", etc.
     let vedName: String        // "Surya", "Chandra", etc.
@@ -94,7 +94,7 @@ struct Planet: Identifiable {
 }
 
 // MARK: - Zodiac Signs
-enum ZodiacSign: String, CaseIterable {
+enum ZodiacSign: String, CaseIterable, Codable {
     case aries = "Aries"
     case taurus = "Taurus"
     case gemini = "Gemini"
